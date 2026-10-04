@@ -1,0 +1,31 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Voidpay Marketplace MCP (@voidly/pay-mcp)",
+  "description": "Node 20+ local stdio MCP connector for public service discovery, owner-approved marketplace drafts and publishing, original-only recovery, and browser checkout. No wallet keys or autonomous payments.",
+  "folders": [
+    "voidly-pay-mcp"
+  ],
+  "excludeFolders": [
+    "voidly-pay-mcp/test",
+    "voidly-pay-mcp/scripts",
+    "voidly-pay-mcp/dist",
+    "voidly-pay-mcp/node_modules",
+    "*archive*",
+    "*deprecated*",
+    "*legacy*",
+    "*outdated*",
+    "*superseded*"
+  ],
+  "excludeFiles": [
+    "package-lock.json",
+    "LICENSE",
+    "glama.json",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md"
+  ],
+  "rules": [
+    "Public service listings are descriptive; the buyer verifies checkout readiness and authorizes payment in the browser.",
+    "Creator mutations require an owner-approved scoped grant and preserve the original journaled operation on uncertain outcomes.",
+    "Checkout is a link for buyer review in the browser; this connector never signs transactions or pays autonomously."
+  ]
+}
