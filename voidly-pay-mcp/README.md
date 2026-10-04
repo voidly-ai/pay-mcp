@@ -1,6 +1,6 @@
 # Voidpay MCP
 
-`@voidly/pay-mcp` is the small public connector for Voidpay's hosted marketplace. Version **0.7.1** replaces the legacy credit/listing tool interface with **12 current marketplace tools**. The connector contains public request builders and validators. It does not distribute the hosted authorization, settlement, provider execution or delivery implementation.
+`@voidly/pay-mcp` is the small public connector for Voidpay's hosted marketplace. Version **0.7.2** (Node 20+; same 12 tools as 0.7.1) replaces the legacy credit/listing tool interface with **12 current marketplace tools**. The connector contains public request builders and validators. It does not distribute the hosted authorization, settlement, provider execution or delivery implementation.
 
 ## What agents can do
 
@@ -14,14 +14,14 @@ A listed service is not proof of current availability. Provider descriptions are
 
 ## Install
 
-Use a trusted **Node 24.15+ host within Node 24**. In a client that supports local stdio MCP servers, configure:
+Use a trusted host with **Node 20 or newer**. In a client that supports local stdio MCP servers, configure:
 
 ```json
 {
   "mcpServers": {
     "voidpay": {
       "command": "npx",
-      "args": ["-y", "@voidly/pay-mcp@0.7.1"]
+      "args": ["-y", "@voidly/pay-mcp@0.7.2"]
     }
   }
 }

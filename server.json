@@ -3,14 +3,14 @@
   "name": "io.github.voidly-ai/pay-mcp",
   "description": "Public discovery, scoped creator work, original-only recovery; checkout stays in owner's browser.",
   "title": "Voidpay Marketplace",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "websiteUrl": "https://voidly.ai/pay",
   "packages": [
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@voidly/pay-mcp",
-      "version": "0.7.1",
+      "version": "0.7.2",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"

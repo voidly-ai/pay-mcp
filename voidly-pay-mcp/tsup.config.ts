@@ -18,7 +18,7 @@ const ESM_REQUIRE_BANNER = [
 ].join("\n");
 
 const shared = {
-  target: "node24",
+  target: "node20",
   platform: "node" as const,
   sourcemap: false,
   minify: true,
