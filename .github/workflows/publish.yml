@@ -1,0 +1,57 @@
+name: Publish pay-mcp with provenance
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: pay-mcp-publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'voidly-ai/pay-mcp'
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    defaults:
+      run:
+        working-directory: voidly-pay-mcp
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24.21.0'
+          package-manager-cache: false
+      - name: Verify new tagged version
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+          if (process.env.RELEASE_TAG !== `v${pkg.version}`) throw new Error('Tag must match package version');
+          if (pkg.version === '0.7.1') throw new Error('0.7.1 is already published; bump the version');
+          const url = `https://registry.npmjs.org/@voidly%2fpay-mcp/${encodeURIComponent(pkg.version)}`;
+          const response = await fetch(url, { headers: { accept: 'application/json' } });
+          if (response.status === 200) throw new Error(`Version ${pkg.version} is already on npm`);
+          if (response.status !== 404) throw new Error(`Could not verify npm version absence: HTTP ${response.status}`);
+          NODE
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Test
+        run: npm test
+      - name: Build and verify public bundle closure
+        run: npm run build
+      - name: Local stdio smoke
+        run: npm run smoke
+      - name: Publish by npm trusted publisher with provenance
+        run: npm publish --provenance --access public

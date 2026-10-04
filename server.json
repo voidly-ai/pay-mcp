@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.voidly-ai/pay-mcp",
+  "description": "Public discovery, scoped creator work, original-only recovery; checkout stays in owner's browser.",
+  "title": "Voidpay Marketplace",
+  "version": "0.7.1",
+  "websiteUrl": "https://voidly.ai/pay",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@voidly/pay-mcp",
+      "version": "0.7.1",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Optional absolute path to the owner's approved, private creator setup JSON. Needed only for creator tools; keep the file user-owned with mode 0600 on Unix.",
+          "format": "filepath",
+          "isSecret": true,
+          "name": "VOIDPAY_CREATOR_SETUP_FILE"
+        },
+        {
+          "description": "Optional absolute path to the private original-operation journal for creator recovery. Keep this directory user-owned with mode 0700 on Unix.",
+          "format": "filepath",
+          "name": "VOIDPAY_MCP_STATE_DIR"
+        }
+      ]
+    }
+  ]
+}

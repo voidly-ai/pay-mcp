@@ -1,0 +1,8 @@
+# Keep a bundle limited to runtime files copied into its isolated root.
+.env*
+*.log
+*.mcpb
+node_modules/.cache/
+src/
+test/
+*.tgz

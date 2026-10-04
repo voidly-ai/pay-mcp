@@ -1,0 +1,2509 @@
+{
+  "schema": "voidpay.creator-collection-golden.v1",
+  "syntheticOnly": true,
+  "contractSha256": "a90e0f79dcb12ffd9aff0ebdc03822e600735ba86024ccd771f48e8687957234",
+  "sourceBaseline": "2e66acb5bfc2e3c661a9eda07bdc5d08167ad2fb",
+  "method": "Independent Python 3 standard-library tuple construction, compact json.dumps(ensure_ascii=False), UTF-8, hashlib.sha256. No protocol implementation imports.",
+  "limits": {
+    "collectionMembers": 16,
+    "configUtf8Bytes": 8192,
+    "snapshotUtf8Bytes": 65536,
+    "requestUtf8Bytes": 16384,
+    "responseUtf8Bytes": 131072,
+    "individualProjectionUtf8Bytes": 4096
+  },
+  "notes": [
+    "Immutable expected bytes for review; never regenerate expected values to make an implementation pass.",
+    "All account/provider/service identifiers and definition digests are synthetic. They have no admission, qualification, wallet, payment or deployment authority.",
+    "The fixed voidly.ai public URL prefix is required by the existing public DTO contract; every slug is synthetic and no URL was contacted.",
+    "V1 historical means a synthetic vector of the retained V1 wire format, not a real historical account or publication.",
+    "The V1 save intentionally omits its optional projectionDigest; the absent slot remains absent in its canonical tuple.",
+    "The two-service and reordered vectors change only order-dependent inputs and digests; their owner, operation key, counters and labels match.",
+    "The maximum vector fills all service reference identifiers to 128 characters, text fields to their character limits, and includes four-byte Unicode, quotes, backslashes, U+2028 and U+2029. It is a maximum-member stress case, not proof of every possible encoding bound.",
+    "ownerReadEnvelope contains both revision and publication config to make response size reproducible.",
+    "Expected canonical strings are actual strings, not object-key-sorted JSON; no Unicode normalization is performed.",
+    "v2-one omits the optional public-entry checkout field. All other V2 public examples emit the exact null/not-open/not-asserted shape. Neither form claims purchase readiness."
+  ],
+  "vectors": [
+    {
+      "id": "v2-one",
+      "kind": "v2",
+      "ownerId": "fixture-owner",
+      "input": {
+        "config": {
+          "version": "voidpay.creator-presentation.v2",
+          "name": "Fixture \"market\" \\ café",
+          "description": "Synthetic collection — preserve é separately from é.",
+          "brandPreset": "ocean",
+          "templateId": "service-collection-v2",
+          "serviceProjectionIds": [
+            "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+          ]
+        },
+        "save": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-save",
+          "expectedVersion": 7,
+          "baseRevision": 3,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+            ]
+          },
+          "projectionDigests": [
+            "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+          ]
+        },
+        "collectionSnapshot": {
+          "version": "voidpay.creator-projections.v2",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01",
+                  "serviceId": "fixture-service-01",
+                  "version": "fixture-v1",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "Fixture Provider 01",
+                "title": "Fixture service 01",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+            }
+          ]
+        },
+        "publicationCommitment": {
+          "spaceId": "fixture-space",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "action": "published",
+          "revision": 4,
+          "configDigest": "f99a1cc4db11a5feca94ff531a002abaf85080d82abddeec64de82726b0f08bf",
+          "projectionDigest": "181210237e2ea03d1a3b5730d01d8fbbf4274f72a67c631b9d7fbc673fe84dc0"
+        },
+        "publicStorefront": {
+          "version": "voidpay.public-storefront.v2",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "publicationDigest": "eca4ac351701084d3ceadf9319c7b918dd7876caa335a54c2fd55c6d282a5077",
+          "publishedAt": 1800000000000,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+            ]
+          },
+          "projectionDigest": "181210237e2ea03d1a3b5730d01d8fbbf4274f72a67c631b9d7fbc673fe84dc0",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01",
+                  "serviceId": "fixture-service-01",
+                  "version": "fixture-v1",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "Fixture Provider 01",
+                "title": "Fixture service 01",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+            }
+          ]
+        },
+        "ownerReadEnvelope": {
+          "version": "voidpay.creator-api.v2",
+          "data": {
+            "space": {
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "createKey": "fixture-create",
+              "createRequestDigest": "abe6d2398a2af35754f3748569a5dbdc594354732e5be33e7baca1726dbc6ffc",
+              "createdAtMs": 1799999990000,
+              "stateVersion": 9,
+              "headRevision": 4,
+              "headRevisionId": "fixture-revision-4",
+              "publicationVersion": 5,
+              "publicationId": "fixture-publication-5"
+            },
+            "revision": {
+              "spaceId": "fixture-space",
+              "revisionId": "fixture-revision-4",
+              "revision": 4,
+              "baseRevision": 3,
+              "idempotencyKey": "fixture-save",
+              "requestDigest": "4dc48bcee3fc7dfc15a62d29ba6473328d20e50886325692e54b1578804b0af8",
+              "configDigest": "f99a1cc4db11a5feca94ff531a002abaf85080d82abddeec64de82726b0f08bf",
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                ]
+              },
+              "createdAtMs": 1799999999000,
+              "expectedVersion": 7,
+              "projectionDigests": [
+                "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+              ]
+            },
+            "publication": {
+              "version": "voidpay.creator-publication.v2",
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "publicationVersion": 5,
+              "action": "published",
+              "revision": 4,
+              "configDigest": "f99a1cc4db11a5feca94ff531a002abaf85080d82abddeec64de82726b0f08bf",
+              "projectionDigest": "181210237e2ea03d1a3b5730d01d8fbbf4274f72a67c631b9d7fbc673fe84dc0",
+              "publicationId": "fixture-publication-5",
+              "revisionId": "fixture-revision-4",
+              "idempotencyKey": "fixture-publish",
+              "requestDigest": "b8600e72d4f68fc0f065cc5baec00a13dc550f9abb79a55854e2c2737470f9ad",
+              "publicationDigest": "eca4ac351701084d3ceadf9319c7b918dd7876caa335a54c2fd55c6d282a5077",
+              "createdAtMs": 1800000000000,
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                ]
+              },
+              "entries": [
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-01",
+                      "serviceId": "fixture-service-01",
+                      "version": "fixture-v1",
+                      "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                    },
+                    "providerLabel": "Fixture Provider 01",
+                    "title": "Fixture service 01",
+                    "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+                }
+              ],
+              "publicUrl": "https://voidly.ai/pay/marketplace/s/fixture-storefront"
+            }
+          }
+        },
+        "publishRequest": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-publish",
+          "expectedVersion": 8,
+          "revision": 4,
+          "configDigest": "f99a1cc4db11a5feca94ff531a002abaf85080d82abddeec64de82726b0f08bf"
+        }
+      },
+      "expected": {
+        "config": {
+          "canonical": "[\"voidpay.creator.config\",2,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"service-collection-v2\",[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"]]",
+          "sha256": "f99a1cc4db11a5feca94ff531a002abaf85080d82abddeec64de82726b0f08bf"
+        },
+        "collection": {
+          "canonical": "[\"voidpay.creator.projections\",2,[[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e\"]]]",
+          "sha256": "181210237e2ea03d1a3b5730d01d8fbbf4274f72a67c631b9d7fbc673fe84dc0"
+        },
+        "save": {
+          "canonical": "[\"voidpay.creator.request\",2,\"fixture-owner\",\"save\",\"fixture-save\",\"fixture-space\",7,3,[\"voidpay.creator.config\",2,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"service-collection-v2\",[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"]],[\"23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e\"]]",
+          "sha256": "4dc48bcee3fc7dfc15a62d29ba6473328d20e50886325692e54b1578804b0af8"
+        },
+        "publication": {
+          "canonical": "[\"voidpay.creator.publication\",2,\"fixture-space\",\"fixture-storefront\",5,\"published\",4,\"f99a1cc4db11a5feca94ff531a002abaf85080d82abddeec64de82726b0f08bf\",\"181210237e2ea03d1a3b5730d01d8fbbf4274f72a67c631b9d7fbc673fe84dc0\"]",
+          "sha256": "eca4ac351701084d3ceadf9319c7b918dd7876caa335a54c2fd55c6d282a5077"
+        },
+        "publishRequest": {
+          "canonical": "[\"voidpay.creator.request\",1,\"fixture-owner\",\"publish\",\"fixture-publish\",\"fixture-space\",8,4,\"f99a1cc4db11a5feca94ff531a002abaf85080d82abddeec64de82726b0f08bf\"]",
+          "sha256": "b8600e72d4f68fc0f065cc5baec00a13dc550f9abb79a55854e2c2737470f9ad"
+        },
+        "services": [
+          {
+            "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",[\"fixture-provider-01\",\"fixture-service-01\",\"fixture-v1\",\"063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"],\"Fixture Provider 01\",\"Fixture service 01\",\"Synthetic text: \\\"quoted\\\", backslash \\\\, café, é, and 🧭. No operational service.\",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+          }
+        ],
+        "sizes": {
+          "config": 317,
+          "save": 512,
+          "collectionSnapshot": 764,
+          "publicStorefront": 1341,
+          "ownerReadEnvelope": 2915,
+          "individualServices": [
+            609
+          ]
+        }
+      }
+    },
+    {
+      "id": "v2-two",
+      "kind": "v2",
+      "ownerId": "fixture-owner",
+      "input": {
+        "config": {
+          "version": "voidpay.creator-presentation.v2",
+          "name": "Fixture \"market\" \\ café",
+          "description": "Synthetic collection — preserve é separately from é.",
+          "brandPreset": "ocean",
+          "templateId": "service-collection-v2",
+          "serviceProjectionIds": [
+            "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+            "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+          ]
+        },
+        "save": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-save",
+          "expectedVersion": 7,
+          "baseRevision": 3,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+              "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+            ]
+          },
+          "projectionDigests": [
+            "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e",
+            "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+          ]
+        },
+        "collectionSnapshot": {
+          "version": "voidpay.creator-projections.v2",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01",
+                  "serviceId": "fixture-service-01",
+                  "version": "fixture-v1",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "Fixture Provider 01",
+                "title": "Fixture service 01",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-02",
+                  "serviceId": "fixture-service-02",
+                  "version": "fixture-v1",
+                  "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                },
+                "providerLabel": "Fixture Provider 02",
+                "title": "Fixture service 02",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+            }
+          ]
+        },
+        "publicationCommitment": {
+          "spaceId": "fixture-space",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "action": "published",
+          "revision": 4,
+          "configDigest": "443228714abc18351ace1bb0079aa5285298d2b6028ac6bbf4773b0b33257f67",
+          "projectionDigest": "bfc0adfc0480971a4365a7f51a44da6c41698b2809e7b16da655a6b0432a40f9"
+        },
+        "publicStorefront": {
+          "version": "voidpay.public-storefront.v2",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "publicationDigest": "da20ec0f5019ab5db1070dd2e777ee690dcd504b4bef679d377697cf4aa11b9f",
+          "publishedAt": 1800000000000,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+              "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+            ]
+          },
+          "projectionDigest": "bfc0adfc0480971a4365a7f51a44da6c41698b2809e7b16da655a6b0432a40f9",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01",
+                  "serviceId": "fixture-service-01",
+                  "version": "fixture-v1",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "Fixture Provider 01",
+                "title": "Fixture service 01",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-02",
+                  "serviceId": "fixture-service-02",
+                  "version": "fixture-v1",
+                  "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                },
+                "providerLabel": "Fixture Provider 02",
+                "title": "Fixture service 02",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            }
+          ]
+        },
+        "ownerReadEnvelope": {
+          "version": "voidpay.creator-api.v2",
+          "data": {
+            "space": {
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "createKey": "fixture-create",
+              "createRequestDigest": "abe6d2398a2af35754f3748569a5dbdc594354732e5be33e7baca1726dbc6ffc",
+              "createdAtMs": 1799999990000,
+              "stateVersion": 9,
+              "headRevision": 4,
+              "headRevisionId": "fixture-revision-4",
+              "publicationVersion": 5,
+              "publicationId": "fixture-publication-5"
+            },
+            "revision": {
+              "spaceId": "fixture-space",
+              "revisionId": "fixture-revision-4",
+              "revision": 4,
+              "baseRevision": 3,
+              "idempotencyKey": "fixture-save",
+              "requestDigest": "eb5cce3580d6318bc0df26b09d8dd43a31e7eedcb86ab4fc9de2b42c5a6dbcb2",
+              "configDigest": "443228714abc18351ace1bb0079aa5285298d2b6028ac6bbf4773b0b33257f67",
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                  "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                ]
+              },
+              "createdAtMs": 1799999999000,
+              "expectedVersion": 7,
+              "projectionDigests": [
+                "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e",
+                "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+              ]
+            },
+            "publication": {
+              "version": "voidpay.creator-publication.v2",
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "publicationVersion": 5,
+              "action": "published",
+              "revision": 4,
+              "configDigest": "443228714abc18351ace1bb0079aa5285298d2b6028ac6bbf4773b0b33257f67",
+              "projectionDigest": "bfc0adfc0480971a4365a7f51a44da6c41698b2809e7b16da655a6b0432a40f9",
+              "publicationId": "fixture-publication-5",
+              "revisionId": "fixture-revision-4",
+              "idempotencyKey": "fixture-publish",
+              "requestDigest": "aa7856417b35c496999b8b11cc89ad915a599bef3472bbbb4913576377fb0e05",
+              "publicationDigest": "da20ec0f5019ab5db1070dd2e777ee690dcd504b4bef679d377697cf4aa11b9f",
+              "createdAtMs": 1800000000000,
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                  "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                ]
+              },
+              "entries": [
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-01",
+                      "serviceId": "fixture-service-01",
+                      "version": "fixture-v1",
+                      "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                    },
+                    "providerLabel": "Fixture Provider 01",
+                    "title": "Fixture service 01",
+                    "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-02",
+                      "serviceId": "fixture-service-02",
+                      "version": "fixture-v1",
+                      "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                    },
+                    "providerLabel": "Fixture Provider 02",
+                    "title": "Fixture service 02",
+                    "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+                }
+              ],
+              "publicUrl": "https://voidly.ai/pay/marketplace/s/fixture-storefront"
+            }
+          }
+        },
+        "publishRequest": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-publish",
+          "expectedVersion": 8,
+          "revision": 4,
+          "configDigest": "443228714abc18351ace1bb0079aa5285298d2b6028ac6bbf4773b0b33257f67"
+        }
+      },
+      "expected": {
+        "config": {
+          "canonical": "[\"voidpay.creator.config\",2,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"service-collection-v2\",[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\"]]",
+          "sha256": "443228714abc18351ace1bb0079aa5285298d2b6028ac6bbf4773b0b33257f67"
+        },
+        "collection": {
+          "canonical": "[\"voidpay.creator.projections\",2,[[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e\"],[\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",\"fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a\"]]]",
+          "sha256": "bfc0adfc0480971a4365a7f51a44da6c41698b2809e7b16da655a6b0432a40f9"
+        },
+        "save": {
+          "canonical": "[\"voidpay.creator.request\",2,\"fixture-owner\",\"save\",\"fixture-save\",\"fixture-space\",7,3,[\"voidpay.creator.config\",2,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"service-collection-v2\",[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\"]],[\"23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e\",\"fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a\"]]",
+          "sha256": "eb5cce3580d6318bc0df26b09d8dd43a31e7eedcb86ab4fc9de2b42c5a6dbcb2"
+        },
+        "publication": {
+          "canonical": "[\"voidpay.creator.publication\",2,\"fixture-space\",\"fixture-storefront\",5,\"published\",4,\"443228714abc18351ace1bb0079aa5285298d2b6028ac6bbf4773b0b33257f67\",\"bfc0adfc0480971a4365a7f51a44da6c41698b2809e7b16da655a6b0432a40f9\"]",
+          "sha256": "da20ec0f5019ab5db1070dd2e777ee690dcd504b4bef679d377697cf4aa11b9f"
+        },
+        "publishRequest": {
+          "canonical": "[\"voidpay.creator.request\",1,\"fixture-owner\",\"publish\",\"fixture-publish\",\"fixture-space\",8,4,\"443228714abc18351ace1bb0079aa5285298d2b6028ac6bbf4773b0b33257f67\"]",
+          "sha256": "aa7856417b35c496999b8b11cc89ad915a599bef3472bbbb4913576377fb0e05"
+        },
+        "services": [
+          {
+            "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",[\"fixture-provider-01\",\"fixture-service-01\",\"fixture-v1\",\"063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"],\"Fixture Provider 01\",\"Fixture service 01\",\"Synthetic text: \\\"quoted\\\", backslash \\\\, café, é, and 🧭. No operational service.\",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+          },
+          {
+            "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",[\"fixture-provider-02\",\"fixture-service-02\",\"fixture-v1\",\"47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\"],\"Fixture Provider 02\",\"Fixture service 02\",\"Synthetic text: \\\"quoted\\\", backslash \\\\, café, é, and 🧭. No operational service.\",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+          }
+        ],
+        "sizes": {
+          "config": 394,
+          "save": 656,
+          "collectionSnapshot": 1472,
+          "publicStorefront": 2276,
+          "ownerReadEnvelope": 3844,
+          "individualServices": [
+            609,
+            609
+          ]
+        }
+      }
+    },
+    {
+      "id": "v2-two-reordered",
+      "kind": "v2",
+      "ownerId": "fixture-owner",
+      "input": {
+        "config": {
+          "version": "voidpay.creator-presentation.v2",
+          "name": "Fixture \"market\" \\ café",
+          "description": "Synthetic collection — preserve é separately from é.",
+          "brandPreset": "ocean",
+          "templateId": "service-collection-v2",
+          "serviceProjectionIds": [
+            "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+            "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+          ]
+        },
+        "save": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-save",
+          "expectedVersion": 7,
+          "baseRevision": 3,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+            ]
+          },
+          "projectionDigests": [
+            "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a",
+            "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+          ]
+        },
+        "collectionSnapshot": {
+          "version": "voidpay.creator-projections.v2",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-02",
+                  "serviceId": "fixture-service-02",
+                  "version": "fixture-v1",
+                  "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                },
+                "providerLabel": "Fixture Provider 02",
+                "title": "Fixture service 02",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01",
+                  "serviceId": "fixture-service-01",
+                  "version": "fixture-v1",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "Fixture Provider 01",
+                "title": "Fixture service 01",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+            }
+          ]
+        },
+        "publicationCommitment": {
+          "spaceId": "fixture-space",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "action": "published",
+          "revision": 4,
+          "configDigest": "14bd6c5b391c0e76d20dddf95433c4719936cca2ff6f1e46ed85306b9785bf7f",
+          "projectionDigest": "3f49a07d5c1743474320f4317f895fd5831983af836b0bfe2660acc0005b6386"
+        },
+        "publicStorefront": {
+          "version": "voidpay.public-storefront.v2",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "publicationDigest": "254a02adfcd1808f4970d6e55cb00e4b6acdedbfd50dcdb3ed9d163bf283323e",
+          "publishedAt": 1800000000000,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+            ]
+          },
+          "projectionDigest": "3f49a07d5c1743474320f4317f895fd5831983af836b0bfe2660acc0005b6386",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-02",
+                  "serviceId": "fixture-service-02",
+                  "version": "fixture-v1",
+                  "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                },
+                "providerLabel": "Fixture Provider 02",
+                "title": "Fixture service 02",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01",
+                  "serviceId": "fixture-service-01",
+                  "version": "fixture-v1",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "Fixture Provider 01",
+                "title": "Fixture service 01",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            }
+          ]
+        },
+        "ownerReadEnvelope": {
+          "version": "voidpay.creator-api.v2",
+          "data": {
+            "space": {
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "createKey": "fixture-create",
+              "createRequestDigest": "abe6d2398a2af35754f3748569a5dbdc594354732e5be33e7baca1726dbc6ffc",
+              "createdAtMs": 1799999990000,
+              "stateVersion": 9,
+              "headRevision": 4,
+              "headRevisionId": "fixture-revision-4",
+              "publicationVersion": 5,
+              "publicationId": "fixture-publication-5"
+            },
+            "revision": {
+              "spaceId": "fixture-space",
+              "revisionId": "fixture-revision-4",
+              "revision": 4,
+              "baseRevision": 3,
+              "idempotencyKey": "fixture-save",
+              "requestDigest": "c80e4e713926a09cc3d5de9e56a41c75f15538bfcab75135a0bf61d5529a3132",
+              "configDigest": "14bd6c5b391c0e76d20dddf95433c4719936cca2ff6f1e46ed85306b9785bf7f",
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                ]
+              },
+              "createdAtMs": 1799999999000,
+              "expectedVersion": 7,
+              "projectionDigests": [
+                "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a",
+                "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+              ]
+            },
+            "publication": {
+              "version": "voidpay.creator-publication.v2",
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "publicationVersion": 5,
+              "action": "published",
+              "revision": 4,
+              "configDigest": "14bd6c5b391c0e76d20dddf95433c4719936cca2ff6f1e46ed85306b9785bf7f",
+              "projectionDigest": "3f49a07d5c1743474320f4317f895fd5831983af836b0bfe2660acc0005b6386",
+              "publicationId": "fixture-publication-5",
+              "revisionId": "fixture-revision-4",
+              "idempotencyKey": "fixture-publish",
+              "requestDigest": "877539345863a550a99a102f7063cb8bcd21831f969529afa9cd33650c382616",
+              "publicationDigest": "254a02adfcd1808f4970d6e55cb00e4b6acdedbfd50dcdb3ed9d163bf283323e",
+              "createdAtMs": 1800000000000,
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                ]
+              },
+              "entries": [
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-02",
+                      "serviceId": "fixture-service-02",
+                      "version": "fixture-v1",
+                      "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                    },
+                    "providerLabel": "Fixture Provider 02",
+                    "title": "Fixture service 02",
+                    "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-01",
+                      "serviceId": "fixture-service-01",
+                      "version": "fixture-v1",
+                      "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                    },
+                    "providerLabel": "Fixture Provider 01",
+                    "title": "Fixture service 01",
+                    "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+                }
+              ],
+              "publicUrl": "https://voidly.ai/pay/marketplace/s/fixture-storefront"
+            }
+          }
+        },
+        "publishRequest": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-publish",
+          "expectedVersion": 8,
+          "revision": 4,
+          "configDigest": "14bd6c5b391c0e76d20dddf95433c4719936cca2ff6f1e46ed85306b9785bf7f"
+        }
+      },
+      "expected": {
+        "config": {
+          "canonical": "[\"voidpay.creator.config\",2,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"service-collection-v2\",[\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"]]",
+          "sha256": "14bd6c5b391c0e76d20dddf95433c4719936cca2ff6f1e46ed85306b9785bf7f"
+        },
+        "collection": {
+          "canonical": "[\"voidpay.creator.projections\",2,[[\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",\"fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a\"],[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e\"]]]",
+          "sha256": "3f49a07d5c1743474320f4317f895fd5831983af836b0bfe2660acc0005b6386"
+        },
+        "save": {
+          "canonical": "[\"voidpay.creator.request\",2,\"fixture-owner\",\"save\",\"fixture-save\",\"fixture-space\",7,3,[\"voidpay.creator.config\",2,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"service-collection-v2\",[\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"]],[\"fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a\",\"23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e\"]]",
+          "sha256": "c80e4e713926a09cc3d5de9e56a41c75f15538bfcab75135a0bf61d5529a3132"
+        },
+        "publication": {
+          "canonical": "[\"voidpay.creator.publication\",2,\"fixture-space\",\"fixture-storefront\",5,\"published\",4,\"14bd6c5b391c0e76d20dddf95433c4719936cca2ff6f1e46ed85306b9785bf7f\",\"3f49a07d5c1743474320f4317f895fd5831983af836b0bfe2660acc0005b6386\"]",
+          "sha256": "254a02adfcd1808f4970d6e55cb00e4b6acdedbfd50dcdb3ed9d163bf283323e"
+        },
+        "publishRequest": {
+          "canonical": "[\"voidpay.creator.request\",1,\"fixture-owner\",\"publish\",\"fixture-publish\",\"fixture-space\",8,4,\"14bd6c5b391c0e76d20dddf95433c4719936cca2ff6f1e46ed85306b9785bf7f\"]",
+          "sha256": "877539345863a550a99a102f7063cb8bcd21831f969529afa9cd33650c382616"
+        },
+        "services": [
+          {
+            "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",[\"fixture-provider-02\",\"fixture-service-02\",\"fixture-v1\",\"47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\"],\"Fixture Provider 02\",\"Fixture service 02\",\"Synthetic text: \\\"quoted\\\", backslash \\\\, café, é, and 🧭. No operational service.\",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "fed493a9222d31669038792c7d1467e0b4613ddebc3c16be39a212438c22fa1a"
+          },
+          {
+            "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",[\"fixture-provider-01\",\"fixture-service-01\",\"fixture-v1\",\"063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"],\"Fixture Provider 01\",\"Fixture service 01\",\"Synthetic text: \\\"quoted\\\", backslash \\\\, café, é, and 🧭. No operational service.\",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "23c23cd5199e2350631e81b3558eb12ed4cd3fe6d14b1cb173a3a230424f7c7e"
+          }
+        ],
+        "sizes": {
+          "config": 394,
+          "save": 656,
+          "collectionSnapshot": 1472,
+          "publicStorefront": 2276,
+          "ownerReadEnvelope": 3844,
+          "individualServices": [
+            609,
+            609
+          ]
+        }
+      }
+    },
+    {
+      "id": "v2-max16-unicode",
+      "kind": "v2",
+      "ownerId": "fixture-owner-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "input": {
+        "config": {
+          "version": "voidpay.creator-presentation.v2",
+          "name": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+          "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+          "brandPreset": "ocean",
+          "templateId": "service-collection-v2",
+          "serviceProjectionIds": [
+            "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+            "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+            "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+            "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+            "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+            "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+            "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+            "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+            "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+            "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+            "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+            "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+            "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+            "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+            "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+            "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+          ]
+        },
+        "save": {
+          "spaceId": "fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "idempotencyKey": "fixture-save-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "expectedVersion": 7,
+          "baseRevision": 3,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+            "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+              "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+              "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+              "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+              "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+              "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+              "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+              "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+              "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+              "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+              "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+              "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+              "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+              "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+              "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+              "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+            ]
+          },
+          "projectionDigests": [
+            "fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03",
+            "e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac",
+            "fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264",
+            "f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7",
+            "9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e",
+            "7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806",
+            "888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8",
+            "f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7",
+            "94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d",
+            "470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c",
+            "178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a",
+            "b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024",
+            "37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f",
+            "02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469",
+            "36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68",
+            "29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1"
+          ]
+        },
+        "collectionSnapshot": {
+          "version": "voidpay.creator-projections.v2",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+                "serviceRef": {
+                  "providerId": "fixture-provider-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+                "serviceRef": {
+                  "providerId": "fixture-provider-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+                "serviceRef": {
+                  "providerId": "fixture-provider-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+                "serviceRef": {
+                  "providerId": "fixture-provider-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+                "serviceRef": {
+                  "providerId": "fixture-provider-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+                "serviceRef": {
+                  "providerId": "fixture-provider-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+                "serviceRef": {
+                  "providerId": "fixture-provider-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+                "serviceRef": {
+                  "providerId": "fixture-provider-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+                "serviceRef": {
+                  "providerId": "fixture-provider-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+                "serviceRef": {
+                  "providerId": "fixture-provider-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+                "serviceRef": {
+                  "providerId": "fixture-provider-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68"
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998",
+                "serviceRef": {
+                  "providerId": "fixture-provider-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1"
+            }
+          ]
+        },
+        "publicationCommitment": {
+          "spaceId": "fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "slug": "fixture-ssssssssssssssssssssssssssssssssssssssss",
+          "publicationVersion": 5,
+          "action": "published",
+          "revision": 4,
+          "configDigest": "1c82b2b182033a74dbb86871bdf1129ef9a9d17e271e20f0b43cb2e241488df2",
+          "projectionDigest": "0109c9e95475f2b5e38bc75212c19a198b2e8626bc10b6bd7bd2baa31bd56ebd"
+        },
+        "publicStorefront": {
+          "version": "voidpay.public-storefront.v2",
+          "slug": "fixture-ssssssssssssssssssssssssssssssssssssssss",
+          "publicationVersion": 5,
+          "publicationDigest": "dc507f0350709b61861871ff9241f6c16a0426e6f75b6ff5f4518d0ca7157644",
+          "publishedAt": 1800000000000,
+          "config": {
+            "version": "voidpay.creator-presentation.v2",
+            "name": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+            "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+            "brandPreset": "ocean",
+            "templateId": "service-collection-v2",
+            "serviceProjectionIds": [
+              "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+              "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+              "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+              "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+              "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+              "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+              "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+              "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+              "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+              "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+              "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+              "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+              "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+              "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+              "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+              "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+            ]
+          },
+          "projectionDigest": "0109c9e95475f2b5e38bc75212c19a198b2e8626bc10b6bd7bd2baa31bd56ebd",
+          "entries": [
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                "serviceRef": {
+                  "providerId": "fixture-provider-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+                "serviceRef": {
+                  "providerId": "fixture-provider-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+                "serviceRef": {
+                  "providerId": "fixture-provider-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+                "serviceRef": {
+                  "providerId": "fixture-provider-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+                "serviceRef": {
+                  "providerId": "fixture-provider-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+                "serviceRef": {
+                  "providerId": "fixture-provider-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+                "serviceRef": {
+                  "providerId": "fixture-provider-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+                "serviceRef": {
+                  "providerId": "fixture-provider-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+                "serviceRef": {
+                  "providerId": "fixture-provider-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+                "serviceRef": {
+                  "providerId": "fixture-provider-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+                "serviceRef": {
+                  "providerId": "fixture-provider-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+                "serviceRef": {
+                  "providerId": "fixture-provider-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+                "serviceRef": {
+                  "providerId": "fixture-provider-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            },
+            {
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998",
+                "serviceRef": {
+                  "providerId": "fixture-provider-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "serviceId": "fixture-service-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "version": "fixture-version-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                  "definitionDigest": "d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+                },
+                "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "projectionDigest": "29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1",
+              "checkout": {
+                "href": null,
+                "access": "not-open",
+                "availability": "not-asserted"
+              }
+            }
+          ]
+        },
+        "ownerReadEnvelope": {
+          "version": "voidpay.creator-api.v2",
+          "data": {
+            "space": {
+              "spaceId": "fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+              "slug": "fixture-ssssssssssssssssssssssssssssssssssssssss",
+              "createKey": "fixture-create",
+              "createRequestDigest": "b6283b76bbeb2e6c2aad80ff1c351e02bfc4b768daed7a746e2b650e0068fb16",
+              "createdAtMs": 1799999990000,
+              "stateVersion": 9,
+              "headRevision": 4,
+              "headRevisionId": "fixture-revision-4",
+              "publicationVersion": 5,
+              "publicationId": "fixture-publication-5"
+            },
+            "revision": {
+              "spaceId": "fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+              "revisionId": "fixture-revision-4",
+              "revision": 4,
+              "baseRevision": 3,
+              "idempotencyKey": "fixture-save-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+              "requestDigest": "270e4bdee94374c04607504c4498f11f355619baaf4148dce423735f09ad790c",
+              "configDigest": "1c82b2b182033a74dbb86871bdf1129ef9a9d17e271e20f0b43cb2e241488df2",
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                  "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                  "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+                  "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+                  "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+                  "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+                  "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+                  "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+                  "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+                  "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+                  "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+                  "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+                  "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+                  "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+                  "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+                  "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+                ]
+              },
+              "createdAtMs": 1799999999000,
+              "expectedVersion": 7,
+              "projectionDigests": [
+                "fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03",
+                "e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac",
+                "fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264",
+                "f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7",
+                "9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e",
+                "7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806",
+                "888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8",
+                "f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7",
+                "94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d",
+                "470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c",
+                "178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a",
+                "b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024",
+                "37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f",
+                "02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469",
+                "36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68",
+                "29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1"
+              ]
+            },
+            "publication": {
+              "version": "voidpay.creator-publication.v2",
+              "spaceId": "fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+              "slug": "fixture-ssssssssssssssssssssssssssssssssssssssss",
+              "publicationVersion": 5,
+              "action": "published",
+              "revision": 4,
+              "configDigest": "1c82b2b182033a74dbb86871bdf1129ef9a9d17e271e20f0b43cb2e241488df2",
+              "projectionDigest": "0109c9e95475f2b5e38bc75212c19a198b2e8626bc10b6bd7bd2baa31bd56ebd",
+              "publicationId": "fixture-publication-5",
+              "revisionId": "fixture-revision-4",
+              "idempotencyKey": "fixture-publish",
+              "requestDigest": "90c35b9aec3e0e8b042485c178c291c3520d3ee6ec404907a22a3677e0b5b776",
+              "publicationDigest": "dc507f0350709b61861871ff9241f6c16a0426e6f75b6ff5f4518d0ca7157644",
+              "createdAtMs": 1800000000000,
+              "config": {
+                "version": "voidpay.creator-presentation.v2",
+                "name": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                "brandPreset": "ocean",
+                "templateId": "service-collection-v2",
+                "serviceProjectionIds": [
+                  "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                  "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                  "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+                  "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+                  "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+                  "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+                  "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+                  "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+                  "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+                  "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+                  "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+                  "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+                  "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+                  "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+                  "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+                  "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+                ]
+              },
+              "entries": [
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68"
+                },
+                {
+                  "service": {
+                    "version": "voidpay.public-market-service.v1",
+                    "projectionId": "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998",
+                    "serviceRef": {
+                      "providerId": "fixture-provider-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "serviceId": "fixture-service-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "version": "fixture-version-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "definitionDigest": "d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998"
+                    },
+                    "providerLabel": "🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\"\\",
+                    "title": "🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\"\\éΩ",
+                    "description": "🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\"\\  ",
+                    "checkoutPath": "/pay/marketplace/checkout",
+                    "access": "invited-only",
+                    "operationalAvailability": "not-asserted"
+                  },
+                  "projectionDigest": "29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1"
+                }
+              ],
+              "publicUrl": "https://voidly.ai/pay/marketplace/s/fixture-ssssssssssssssssssssssssssssssssssssssss"
+            }
+          }
+        },
+        "publishRequest": {
+          "spaceId": "fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "idempotencyKey": "fixture-publish",
+          "expectedVersion": 8,
+          "revision": 4,
+          "configDigest": "1c82b2b182033a74dbb86871bdf1129ef9a9d17e271e20f0b43cb2e241488df2"
+        }
+      },
+      "expected": {
+        "config": {
+          "canonical": "[\"voidpay.creator.config\",2,\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"ocean\",\"service-collection-v2\",[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",\"qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600\",\"qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b\",\"qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa\",\"qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e\",\"qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a\",\"qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0\",\"qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487\",\"qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b\",\"qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126\",\"qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79\",\"qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833\",\"qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc\",\"qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2\",\"qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998\"]]",
+          "sha256": "1c82b2b182033a74dbb86871bdf1129ef9a9d17e271e20f0b43cb2e241488df2"
+        },
+        "collection": {
+          "canonical": "[\"voidpay.creator.projections\",2,[[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03\"],[\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",\"e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac\"],[\"qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600\",\"fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264\"],[\"qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b\",\"f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7\"],[\"qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa\",\"9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e\"],[\"qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e\",\"7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806\"],[\"qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a\",\"888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8\"],[\"qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0\",\"f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7\"],[\"qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487\",\"94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d\"],[\"qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b\",\"470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c\"],[\"qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126\",\"178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a\"],[\"qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79\",\"b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024\"],[\"qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833\",\"37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f\"],[\"qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc\",\"02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469\"],[\"qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2\",\"36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68\"],[\"qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998\",\"29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1\"]]]",
+          "sha256": "0109c9e95475f2b5e38bc75212c19a198b2e8626bc10b6bd7bd2baa31bd56ebd"
+        },
+        "save": {
+          "canonical": "[\"voidpay.creator.request\",2,\"fixture-owner-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"save\",\"fixture-save-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",7,3,[\"voidpay.creator.config\",2,\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"ocean\",\"service-collection-v2\",[\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",\"qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600\",\"qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b\",\"qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa\",\"qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e\",\"qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a\",\"qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0\",\"qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487\",\"qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b\",\"qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126\",\"qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79\",\"qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833\",\"qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc\",\"qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2\",\"qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998\"]],[\"fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03\",\"e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac\",\"fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264\",\"f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7\",\"9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e\",\"7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806\",\"888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8\",\"f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7\",\"94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d\",\"470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c\",\"178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a\",\"b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024\",\"37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f\",\"02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469\",\"36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68\",\"29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1\"]]",
+          "sha256": "270e4bdee94374c04607504c4498f11f355619baaf4148dce423735f09ad790c"
+        },
+        "publication": {
+          "canonical": "[\"voidpay.creator.publication\",2,\"fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-ssssssssssssssssssssssssssssssssssssssss\",5,\"published\",4,\"1c82b2b182033a74dbb86871bdf1129ef9a9d17e271e20f0b43cb2e241488df2\",\"0109c9e95475f2b5e38bc75212c19a198b2e8626bc10b6bd7bd2baa31bd56ebd\"]",
+          "sha256": "dc507f0350709b61861871ff9241f6c16a0426e6f75b6ff5f4518d0ca7157644"
+        },
+        "publishRequest": {
+          "canonical": "[\"voidpay.creator.request\",1,\"fixture-owner-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"publish\",\"fixture-publish\",\"fixture-space-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",8,4,\"1c82b2b182033a74dbb86871bdf1129ef9a9d17e271e20f0b43cb2e241488df2\"]",
+          "sha256": "90c35b9aec3e0e8b042485c178c291c3520d3ee6ec404907a22a3677e0b5b776"
+        },
+        "services": [
+          {
+            "projectionId": "qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\",[\"fixture-provider-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-01-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"063bd29ad88b0421df10b1062751370c907827fef21c4a11792b561e734739a6\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "fbdff41acb6ddd2ba2e88445e0ec198e2acc4917109c56baf86c8ae1d504ea03"
+          },
+          {
+            "projectionId": "qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\",[\"fixture-provider-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-02-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"47c0782f6a5c92db6de73bfef28b66b82be2d88f4381e045f5d5cbe2a65a1f8b\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "e546efe8bb3425db8504985aa0be92a438381ed5847ffeb2404411425f5f47ac"
+          },
+          {
+            "projectionId": "qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600\",[\"fixture-provider-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"2612dd2bbd39b2384576c2cf111dd02411506046b0a0370f7a945d7f03c19600\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "fd69a30ff0c4c8740566301e8a090391ead697c5f0b36991683b36688de0b264"
+          },
+          {
+            "projectionId": "qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b\",[\"fixture-provider-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-04-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"a996d2b758949157751ad9c5a12319ef54b7cbae4b5f1c551be4f2d91635df4b\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "f5c96e22f9d5dcf1e0d89bf6c6555a38ae332937a5048344c32ac309dd9179f7"
+          },
+          {
+            "projectionId": "qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa\",[\"fixture-provider-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-05-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"2c15327a596fb5c68b81b5846e9d1749f2aea4c6d985cb6b832369394ea78caa\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "9bf7d34def210eb792869b885e9150082ce6fa0c50f7e43cbe7a518194bb987e"
+          },
+          {
+            "projectionId": "qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e\",[\"fixture-provider-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-06-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"0ab98b19cec0ae539799ec70230e0c7eaafee825051a1e5b6789fc2ba917865e\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "7a534a096218f8f955b865cd2d8962ea6c7084cc5dca4947a201a822934ce806"
+          },
+          {
+            "projectionId": "qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a\",[\"fixture-provider-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-07-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"e229d22438489ac862f6d16ee1e90ed676caacf7a7f689a3afb531dd9892645a\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "888b9e3ba3ae604466146569b416eeb6f9e150118d0ea1f006f4b06766d26aa8"
+          },
+          {
+            "projectionId": "qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0\",[\"fixture-provider-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-08-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"3f05f54e5761d8d397b273e0d0520d974db43adb0a17f51fc51afebdac82e5f0\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "f38a5c332a9ea00e4c8b0d8857c49eacf68b6b994d08196c35c302df1f7075f7"
+          },
+          {
+            "projectionId": "qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487\",[\"fixture-provider-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-09-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"e4fa83b31cb70294ecc8b9fb0081b75e387f14883b5235d06cd9e54ea9ce4487\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "94f865ab4fdaba152d93ed130538c88920451e69d60e8c42b4d1074d6891228d"
+          },
+          {
+            "projectionId": "qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b\",[\"fixture-provider-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-10-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"b26efab4681d52bdeb86961b9fffe58ea0d9af5d2287bad2e478de29e47bcc7b\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "470fd0f92d79599ff02227f79e8be2913584e882823576ad9a905af3ce32979c"
+          },
+          {
+            "projectionId": "qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126\",[\"fixture-provider-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-11-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"825b15b4e39d60949aa1200bf292f1c3c59d3f48472db01301c0375deb670126\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "178707c7cdb6dd851140496519f174d7ce0bcf81cf4642884e8c41b0f903256a"
+          },
+          {
+            "projectionId": "qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79\",[\"fixture-provider-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-12-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"4770728c434501085a55c0f2e8d054cb1538109683c1023b53be6e3167dd3b79\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "b2b48876434de4354903071e1ba801950fa671e63e6303ebe114790ab49b3024"
+          },
+          {
+            "projectionId": "qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833\",[\"fixture-provider-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-13-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"b762082f983021973ebc17f40a014dcb305a8345b252f799965a5b0577f8f833\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "37e222138c686023357189cf710f527a7e40bd93923d694de17ef99213e7551f"
+          },
+          {
+            "projectionId": "qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc\",[\"fixture-provider-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-14-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"a50424c56c7294c70a80d38aa9b9e8df5d7a28c0cbe1649796dd1a7a8b8857dc\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "02c66ce188be18b7238776c7e2eb8cc0992553d9bf51982522a8ca839084d469"
+          },
+          {
+            "projectionId": "qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2\",[\"fixture-provider-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-15-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"24968225017e85dec1331b9f827cb55e19e1c345040ba69c60984155165c52c2\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "36e2b4edd3fa04e3be0ed1a9a7e4f5f5ec40c249a770a8878c2d2881346abe68"
+          },
+          {
+            "projectionId": "qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998\",[\"fixture-provider-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-service-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"fixture-version-16-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"d74ec80f7c709ee23fbbd1a7d37691eab7da3107b0e25941e23458a2abe3e998\"],\"🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭🧭\\\"\\\\\",\"🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰🛰\\\"\\\\éΩ\",\"🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩🧩\\\"\\\\  \",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "29c057a0fd8d65fd26ef71e941d1f34354a2c846c91c29f87099b01dec5796f1"
+          }
+        ],
+        "sizes": {
+          "config": 2274,
+          "save": 3705,
+          "collectionSnapshot": 32936,
+          "publicStorefront": 36700,
+          "ownerReadEnvelope": 40557,
+          "individualServices": [
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956,
+            1956
+          ]
+        }
+      }
+    },
+    {
+      "id": "v1-synthetic-historical",
+      "kind": "v1",
+      "ownerId": "fixture-owner",
+      "input": {
+        "config": {
+          "version": "voidpay.creator-presentation.v1",
+          "name": "Fixture \"market\" \\ café",
+          "description": "Synthetic collection — preserve é separately from é.",
+          "brandPreset": "ocean",
+          "templateId": "text-workbench-v1",
+          "serviceProjectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+        },
+        "save": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-save",
+          "expectedVersion": 7,
+          "baseRevision": 3,
+          "config": {
+            "version": "voidpay.creator-presentation.v1",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "text-workbench-v1",
+            "serviceProjectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+          }
+        },
+        "collectionSnapshot": null,
+        "publicationCommitment": {
+          "spaceId": "fixture-space",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "action": "published",
+          "revision": 4,
+          "configDigest": "0bcf79989fe9afd5ee38e1b47a5d2e9ab601bc607f1093b285811517e3399d3a",
+          "projectionDigest": "e7a184f7165eea2a0c24444526706f057222bb4cacb4e30fd184c93a58dc08fa"
+        },
+        "publicStorefront": {
+          "version": "voidpay.public-storefront.v1",
+          "slug": "fixture-storefront",
+          "publicationVersion": 5,
+          "publicationDigest": "1e8f0c50b35eceeb133e71f975b85eac71ec21b5d2377f6a3240d6ba8a7652aa",
+          "publishedAt": 1800000000000,
+          "config": {
+            "version": "voidpay.creator-presentation.v1",
+            "name": "Fixture \"market\" \\ café",
+            "description": "Synthetic collection — preserve é separately from é.",
+            "brandPreset": "ocean",
+            "templateId": "text-workbench-v1",
+            "serviceProjectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+          },
+          "service": {
+            "version": "voidpay.public-market-service.v1",
+            "projectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889",
+            "serviceRef": {
+              "providerId": "fixture-provider-91",
+              "serviceId": "fixture-service-91",
+              "version": "fixture-v1",
+              "definitionDigest": "33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+            },
+            "providerLabel": "Fixture Provider 91",
+            "title": "Fixture service 91",
+            "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+            "checkoutPath": "/pay/marketplace/checkout",
+            "access": "invited-only",
+            "operationalAvailability": "not-asserted"
+          },
+          "checkout": {
+            "href": null,
+            "access": "not-open",
+            "availability": "not-asserted",
+            "selection": {
+              "serviceRef": {
+                "providerId": "fixture-provider-91",
+                "serviceId": "fixture-service-91",
+                "version": "fixture-v1",
+                "definitionDigest": "33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+              },
+              "projectionDigest": "e7a184f7165eea2a0c24444526706f057222bb4cacb4e30fd184c93a58dc08fa"
+            }
+          }
+        },
+        "ownerReadEnvelope": {
+          "version": "voidpay.creator-api.v1",
+          "data": {
+            "space": {
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "createKey": "fixture-create",
+              "createRequestDigest": "abe6d2398a2af35754f3748569a5dbdc594354732e5be33e7baca1726dbc6ffc",
+              "createdAtMs": 1799999990000,
+              "stateVersion": 9,
+              "headRevision": 4,
+              "headRevisionId": "fixture-revision-4",
+              "publicationVersion": 5,
+              "publicationId": "fixture-publication-5"
+            },
+            "revision": {
+              "spaceId": "fixture-space",
+              "revisionId": "fixture-revision-4",
+              "revision": 4,
+              "baseRevision": 3,
+              "idempotencyKey": "fixture-save",
+              "requestDigest": "611fe72023ff77ecba5abb7375078cb43710bd7c5878c9e8c5949b499fe11c48",
+              "configDigest": "0bcf79989fe9afd5ee38e1b47a5d2e9ab601bc607f1093b285811517e3399d3a",
+              "config": {
+                "version": "voidpay.creator-presentation.v1",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "text-workbench-v1",
+                "serviceProjectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+              },
+              "createdAtMs": 1799999999000
+            },
+            "publication": {
+              "spaceId": "fixture-space",
+              "slug": "fixture-storefront",
+              "publicationVersion": 5,
+              "action": "published",
+              "revision": 4,
+              "configDigest": "0bcf79989fe9afd5ee38e1b47a5d2e9ab601bc607f1093b285811517e3399d3a",
+              "projectionDigest": "e7a184f7165eea2a0c24444526706f057222bb4cacb4e30fd184c93a58dc08fa",
+              "publicationId": "fixture-publication-5",
+              "revisionId": "fixture-revision-4",
+              "idempotencyKey": "fixture-publish",
+              "requestDigest": "41497b42fc15b9ef4cde37e7af0075cd78338a3f4680ce1f242d5929b36e2e05",
+              "publicationDigest": "1e8f0c50b35eceeb133e71f975b85eac71ec21b5d2377f6a3240d6ba8a7652aa",
+              "createdAtMs": 1800000000000,
+              "config": {
+                "version": "voidpay.creator-presentation.v1",
+                "name": "Fixture \"market\" \\ café",
+                "description": "Synthetic collection — preserve é separately from é.",
+                "brandPreset": "ocean",
+                "templateId": "text-workbench-v1",
+                "serviceProjectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+              },
+              "service": {
+                "version": "voidpay.public-market-service.v1",
+                "projectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889",
+                "serviceRef": {
+                  "providerId": "fixture-provider-91",
+                  "serviceId": "fixture-service-91",
+                  "version": "fixture-v1",
+                  "definitionDigest": "33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+                },
+                "providerLabel": "Fixture Provider 91",
+                "title": "Fixture service 91",
+                "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+                "checkoutPath": "/pay/marketplace/checkout",
+                "access": "invited-only",
+                "operationalAvailability": "not-asserted"
+              },
+              "publicUrl": "https://voidly.ai/pay/marketplace/s/fixture-storefront"
+            }
+          }
+        },
+        "publishRequest": {
+          "spaceId": "fixture-space",
+          "idempotencyKey": "fixture-publish",
+          "expectedVersion": 8,
+          "revision": 4,
+          "configDigest": "0bcf79989fe9afd5ee38e1b47a5d2e9ab601bc607f1093b285811517e3399d3a"
+        },
+        "service": {
+          "version": "voidpay.public-market-service.v1",
+          "projectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889",
+          "serviceRef": {
+            "providerId": "fixture-provider-91",
+            "serviceId": "fixture-service-91",
+            "version": "fixture-v1",
+            "definitionDigest": "33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889"
+          },
+          "providerLabel": "Fixture Provider 91",
+          "title": "Fixture service 91",
+          "description": "Synthetic text: \"quoted\", backslash \\, café, é, and 🧭. No operational service.",
+          "checkoutPath": "/pay/marketplace/checkout",
+          "access": "invited-only",
+          "operationalAvailability": "not-asserted"
+        }
+      },
+      "expected": {
+        "config": {
+          "canonical": "[\"voidpay.creator.config\",1,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"text-workbench-v1\",\"qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889\"]",
+          "sha256": "0bcf79989fe9afd5ee38e1b47a5d2e9ab601bc607f1093b285811517e3399d3a"
+        },
+        "collection": null,
+        "save": {
+          "canonical": "[\"voidpay.creator.request\",1,\"fixture-owner\",\"save\",\"fixture-save\",\"fixture-space\",7,3,[\"voidpay.creator.config\",1,\"Fixture \\\"market\\\" \\\\ café\",\"Synthetic collection — preserve é separately from é.\",\"ocean\",\"text-workbench-v1\",\"qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889\"]]",
+          "sha256": "611fe72023ff77ecba5abb7375078cb43710bd7c5878c9e8c5949b499fe11c48"
+        },
+        "publication": {
+          "canonical": "[\"voidpay.creator.publication\",1,\"fixture-space\",\"fixture-storefront\",5,\"published\",4,\"0bcf79989fe9afd5ee38e1b47a5d2e9ab601bc607f1093b285811517e3399d3a\",\"e7a184f7165eea2a0c24444526706f057222bb4cacb4e30fd184c93a58dc08fa\"]",
+          "sha256": "1e8f0c50b35eceeb133e71f975b85eac71ec21b5d2377f6a3240d6ba8a7652aa"
+        },
+        "publishRequest": {
+          "canonical": "[\"voidpay.creator.request\",1,\"fixture-owner\",\"publish\",\"fixture-publish\",\"fixture-space\",8,4,\"0bcf79989fe9afd5ee38e1b47a5d2e9ab601bc607f1093b285811517e3399d3a\"]",
+          "sha256": "41497b42fc15b9ef4cde37e7af0075cd78338a3f4680ce1f242d5929b36e2e05"
+        },
+        "services": [
+          {
+            "projectionId": "qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889",
+            "canonical": "[\"voidpay.creator.public-service\",1,\"voidpay.public-market-service.v1\",\"qualified-33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889\",[\"fixture-provider-91\",\"fixture-service-91\",\"fixture-v1\",\"33fe1df90c4d78b3a8e217bed10353605e9de8d81c972ffd51391dd2b6047889\"],\"Fixture Provider 91\",\"Fixture service 91\",\"Synthetic text: \\\"quoted\\\", backslash \\\\, café, é, and 🧭. No operational service.\",\"/pay/marketplace/checkout\",\"invited-only\",\"not-asserted\"]",
+            "sha256": "e7a184f7165eea2a0c24444526706f057222bb4cacb4e30fd184c93a58dc08fa"
+          }
+        ],
+        "sizes": {
+          "config": 310,
+          "save": 416,
+          "collectionSnapshot": null,
+          "publicStorefront": 1515,
+          "ownerReadEnvelope": 2649,
+          "individualServices": [
+            609
+          ]
+        }
+      }
+    }
+  ]
+}

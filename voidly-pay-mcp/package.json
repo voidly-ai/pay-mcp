@@ -1,0 +1,71 @@
+{
+  "name": "@voidly/pay-mcp",
+  "version": "0.7.1",
+  "description": "Public MCP connector for Voidpay marketplace discovery, scoped creator drafts and publishing, original-only recovery, and owner-browser checkout handoff. Hosted authorization and payment enforcement remain private. No wallet keys or autonomous payments.",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "voidly-pay-mcp": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.cjs",
+    "dist/index.d.ts",
+    "dist/index.d.cts",
+    "dist/cli.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsup && node scripts/check-public-bundle.mjs",
+    "smoke": "node scripts/smoke-cli.mjs",
+    "test": "vitest run --pool=forks --poolOptions.forks.singleFork",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build && npm run smoke"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.6.1"
+  },
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "voidly",
+    "voidpay",
+    "marketplace",
+    "service-discovery",
+    "creator-tools",
+    "stdio-transport",
+    "agent-to-agent"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://voidly.ai/pay",
+  "mcpName": "io.github.voidly-ai/pay-mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voidly-ai/pay-mcp.git",
+    "directory": "voidly-pay-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/voidly-ai/pay-mcp/issues"
+  }
+}
