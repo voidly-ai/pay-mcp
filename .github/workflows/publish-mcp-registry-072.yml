@@ -1,0 +1,62 @@
+name: Publish Voidpay MCP 0.7.2 to MCP Registry
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-registry:
+    if: github.repository == 'voidly-ai/pay-mcp' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out the reviewed 0.7.2 source
+        uses: actions/checkout@v4
+        with:
+          ref: 1852187dea1fef5cbce3770d7fe7d5acbd0b9448
+          persist-credentials: false
+
+      - name: Verify source, package, and registry state
+        run: |
+          test "$(git rev-parse HEAD)" = '1852187dea1fef5cbce3770d7fe7d5acbd0b9448'
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFileSync } from 'node:fs';
+
+          const server = JSON.parse(readFileSync('server.json', 'utf8'));
+          const source = JSON.parse(readFileSync('voidly-pay-mcp/package.json', 'utf8'));
+          assert.equal(server.name, 'io.github.voidly-ai/pay-mcp');
+          assert.equal(server.version, '0.7.2');
+          assert.equal(source.name, '@voidly/pay-mcp');
+          assert.equal(source.version, '0.7.2');
+          assert.equal(source.mcpName, server.name);
+          assert.equal(server.packages?.[0]?.identifier, source.name);
+          assert.equal(server.packages?.[0]?.version, source.version);
+
+          const npmResponse = await fetch('https://registry.npmjs.org/@voidly%2fpay-mcp/0.7.2');
+          assert.equal(npmResponse.status, 200, 'npm 0.7.2 must already be published');
+          const published = await npmResponse.json();
+          assert.equal(published.name, source.name);
+          assert.equal(published.version, source.version);
+          assert.equal(published.mcpName, server.name);
+          assert.equal(published.license, 'Apache-2.0');
+          assert.equal(published.engines?.node, '>=20');
+
+          const registryResponse = await fetch('https://registry.modelcontextprotocol.io/v0.1/servers/io.github.voidly-ai%2Fpay-mcp/versions/0.7.2');
+          assert.equal(registryResponse.status, 404, 'MCP Registry 0.7.2 must not already exist');
+          NODE
+
+      - name: Install official MCP Registry publisher
+        run: |
+          curl -fsSL 'https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz' -o mcp-publisher.tar.gz
+          tar -xzf mcp-publisher.tar.gz mcp-publisher
+
+      - name: Validate registry manifest
+        run: ./mcp-publisher validate server.json
+
+      - name: Authenticate with repository OIDC
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish 0.7.2 registry entry
+        run: ./mcp-publisher publish server.json
