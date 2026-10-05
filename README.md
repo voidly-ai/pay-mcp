@@ -32,6 +32,12 @@ For a portable workspace file, use `{"mcpServers":{"voidpay-hosted":{"type":"htt
 
 - **Claude Desktop / Claude account:** open **Customize → Connectors → Add custom connector** and enter `https://api.voidly.ai/mcp/voidpay`. Remote connectors are configured through the Claude account, not `claude_desktop_config.json`.
 
+## x402: direct agent payments
+
+Agents with their own wallet and an x402 v2 client can pay per call in USDC on Base at [`https://x402.voidly.ai/v1/verify-claim`](https://x402.voidly.ai/v1/verify-claim). The gateway's HTTP 402 response gives the current payment terms; check them before authorizing a retry. This direct route needs no Voidpay account or browser checkout. The agent's own wallet policy controls whether a person must approve the payment.
+
+This route is separate from both Voidpay MCP connectors. `@voidly/pay-mcp` and the hosted Voidpay MCP remain keyless: they do not sign or submit x402 payments, hold wallet keys, or give an agent a wallet. `voidpay_checkout_link` still sends a buyer to the browser for review and payment. See the gateway's [current resource discovery](https://x402.voidly.ai/.well-known/x402) for its advertised network and price.
+
 ## Local package install
 
 The repository's root `.mcp.json` pins the local stdio package version. For Claude Desktop, place the following entry in `claude_desktop_config.json`; for Cursor, use `.cursor/mcp.json`; for VS Code, use a portable workspace root `.mcp.json`. Use Node 20 or newer.
