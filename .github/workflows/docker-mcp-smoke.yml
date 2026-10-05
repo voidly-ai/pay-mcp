@@ -1,0 +1,27 @@
+name: Docker MCP smoke
+
+"on":
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pay-mcp-docker-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  docker-mcp-smoke:
+    if: github.repository == 'voidly-ai/pay-mcp'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build reviewed root Dockerfile
+        timeout-minutes: 12
+        run: docker build --file Dockerfile --tag voidpay-mcp:pr-smoke .
+      - name: Verify bounded stdio MCP discovery without network
+        timeout-minutes: 3
+        run: python3 .github/scripts/docker_stdio_smoke.py voidpay-mcp:pr-smoke

@@ -1,0 +1,22 @@
+# Repository-root ignore file for the standalone pay-mcp source.
+# Prevents sending installers, dependencies, private files, and other lanes.
+**
+!voidly-pay-mcp/
+!voidly-pay-mcp/package.json
+!voidly-pay-mcp/package-lock.json
+!voidly-pay-mcp/LICENSE
+!voidly-pay-mcp/tsconfig.json
+!voidly-pay-mcp/tsup.config.ts
+!voidly-pay-mcp/src/
+!voidly-pay-mcp/src/**
+!voidly-pay-mcp/scripts/
+!voidly-pay-mcp/scripts/**
+!creator-client/
+!creator-client/src/
+!creator-client/src/client.ts
+!landing/
+!landing/lib/
+!landing/lib/marketplacePublishingProtocol.ts
+!landing/lib/marketplaceCollectionProtocol.ts
+!landing/lib/marketplaceQualifiedInventory.ts
+!landing/lib/marketplacePublicService.ts
