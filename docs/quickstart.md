@@ -9,7 +9,7 @@ Use a trusted host with Node 20 or newer and an MCP client that supports local s
   "mcpServers": {
     "voidpay": {
       "command": "npx",
-      "args": ["-y", "@voidly/pay-mcp@0.7.2"]
+      "args": ["-y", "@voidly/pay-mcp@0.7.3"]
     }
   }
 }
@@ -34,7 +34,7 @@ Point the MCP process at that file by adding `VOIDPAY_CREATOR_SETUP_FILE` to the
   "mcpServers": {
     "voidpay": {
       "command": "npx",
-      "args": ["-y", "@voidly/pay-mcp@0.7.2"],
+      "args": ["-y", "@voidly/pay-mcp@0.7.3"],
       "env": {
         "VOIDPAY_CREATOR_SETUP_FILE": "/absolute/private/path/creator-setup.json"
       }

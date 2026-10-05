@@ -1,6 +1,6 @@
 # Voidpay Marketplace MCP
 
-> Public source and documentation for `@voidly/pay-mcp` 0.7.2, a Node 20+ local stdio MCP connector with 12 tools for public service discovery, owner-approved marketplace work, and checkout links for buyer review in the browser.
+> Public source and documentation for `@voidly/pay-mcp` 0.7.3, a Node 20+ local stdio MCP connector with 12 tools for public service discovery, owner-approved marketplace work, and checkout links for buyer review in the browser.
 
 Public listings do not prove current availability. Creator access requires an owner-approved scoped grant. The connector does not sign transactions, hold wallet keys, or make autonomous purchases. Paid checkout recovery stays in the original authenticated buyer browser.
 

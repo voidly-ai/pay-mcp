@@ -1,6 +1,10 @@
 # Voidpay Marketplace MCP
 
-This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Version 0.7.2 offers 12 tools. Public service discovery needs no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
+[![npm version](https://img.shields.io/npm/v/%40voidly%2Fpay-mcp?label=npm)](https://www.npmjs.com/package/@voidly/pay-mcp)
+[![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/?search=io.github.voidly-ai%2Fpay-mcp)
+[![Glama directory](https://img.shields.io/badge/Glama-directory-6b21a8)](https://glama.ai/mcp/servers/voidly-ai/pay-mcp)
+
+This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Version 0.7.3 offers 12 tools. Public service discovery needs no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
 
 ## Hosted Voidpay (four public tools)
 
@@ -30,14 +34,14 @@ For a portable workspace file, use `{"mcpServers":{"voidpay-hosted":{"type":"htt
 
 ## Local package install
 
-The repository's root `.mcp.json` pins the published local stdio package. For Claude Desktop, place the following entry in `claude_desktop_config.json`; for Cursor, use `.cursor/mcp.json`; for VS Code, use a portable workspace root `.mcp.json`. Use Node 20 or newer.
+The repository's root `.mcp.json` pins the local stdio package version. For Claude Desktop, place the following entry in `claude_desktop_config.json`; for Cursor, use `.cursor/mcp.json`; for VS Code, use a portable workspace root `.mcp.json`. Use Node 20 or newer.
 
 ```json
 {
   "mcpServers": {
     "voidpay": {
       "command": "npx",
-      "args": ["-y", "@voidly/pay-mcp@0.7.2"]
+      "args": ["-y", "@voidly/pay-mcp@0.7.3"]
     }
   }
 }
@@ -48,7 +52,7 @@ The [documentation](docs/README.md) adds a quickstart, concepts, examples for al
 
 ## Source and checks
 
-`voidly-pay-mcp/` contains the MCP server. `creator-client/src/client.ts` and four `landing/lib/marketplace*.ts` modules are the reviewed public protocol/build closure. The `mcpb/` directory contains the local bundle manifest. `server.json` describes the local npm 0.7.2 Registry entry; the hosted Voidpay connector has a separate remote Registry identity. Hosted authorization, settlement, provider execution, and delivery code are not in this repository.
+`voidly-pay-mcp/` contains the MCP server. `creator-client/src/client.ts` and four `landing/lib/marketplace*.ts` modules are the reviewed public protocol/build closure. The `mcpb/` directory contains the local bundle manifest. `server.json` is the Registry manifest for the local npm 0.7.3 package; the hosted Voidpay connector has a separate remote Registry identity. Hosted authorization, settlement, provider execution, and delivery code are not in this repository.
 
 Run in `voidly-pay-mcp/` with Node 20 or newer (CI builds on Node 24):
 
@@ -60,11 +64,11 @@ npm run build
 npm run smoke
 ```
 
-The build guard checks every bundled import and output. 0.7.2 is the 0.7.1 code with its Node requirement widened to Node 20+ (verified on Node 20, 22, 24 and 25) and its version strings updated. Generated `dist/`, dependencies, credentials, journals, and bundles are excluded from source commits.
+The build guard checks every bundled import and output. Version 0.7.2 widened the Node requirement to Node 20+ (verified on Node 20, 22, 24 and 25). Version 0.7.3 keeps the 12-tool interface and adds the canonical repository link to the Registry manifest. Generated `dist/`, dependencies, credentials, journals, and bundles are excluded from source commits.
 
 ## Publication and license
 
-The source in this repository and the published npm 0.7.2 package are offered under Apache-2.0. The previously published npm 0.7.1 tarball declares MIT and retains those terms. Future npm releases need a new version, owner review, and trusted publisher setup. The CI workflow refuses to republish an existing npm version.
+The source in this repository is offered under Apache-2.0. The published npm 0.7.2 package also declares Apache-2.0; the earlier 0.7.1 tarball declares MIT and retains those terms. Publishing 0.7.3 requires owner review and npm trusted publisher setup. The CI workflow refuses to republish an existing npm version.
 
 
 ## Trademarks

@@ -1,6 +1,6 @@
 {
   "name": "@voidly/pay-mcp",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Public MCP connector for Voidpay marketplace discovery, scoped creator drafts and publishing, original-only recovery, and owner-browser checkout handoff. Hosted authorization and payment enforcement remain private. No wallet keys or autonomous payments.",
   "type": "module",
   "main": "dist/index.cjs",

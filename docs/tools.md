@@ -22,7 +22,7 @@ Response (parsed `content[0].text`):
 
 ```json
 {
-  "version": "0.7.2",
+  "version": "0.7.3",
   "discovery": "public",
   "creatorConfigured": false,
   "creatorSetupUrl": "https://voidly.ai/pay/marketplace/create",

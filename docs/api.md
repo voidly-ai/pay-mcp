@@ -1,6 +1,6 @@
 # Programmatic package API
 
-`@voidly/pay-mcp@0.7.2` exports `tools`, `createToolRunner`, and `buildServer` from its main package entry. It also exports the `ServerConfig` TypeScript interface. The executable `voidly-pay-mcp` starts the same server over stdio. Most MCP hosts should use the [pinned stdio setup](quickstart.md); these exports are for a trusted Node host integrating the connector directly.
+`@voidly/pay-mcp@0.7.3` exports `tools`, `createToolRunner`, and `buildServer` from its main package entry. It also exports the `ServerConfig` TypeScript interface. The executable `voidly-pay-mcp` starts the same server over stdio. Most MCP hosts should use the [pinned stdio setup](quickstart.md); these exports are for a trusted Node host integrating the connector directly.
 
 ## `tools`
 
@@ -26,10 +26,10 @@ const result = await call('voidpay_status', {});
 if ('isError' in result && result.isError) throw new Error(result.content[0].text);
 const status = JSON.parse(result.content[0].text);
 console.log(status.version, status.hostedServiceAvailability);
-// 0.7.2 not-asserted
+// 0.7.3 not-asserted
 ```
 
-The call above returns a text content block whose parsed JSON begins with `{"version":"0.7.2","discovery":"public"}` and includes `"autonomousPayments":false`, `"walletKeysHeld":false`, and `"hostedServiceAvailability":"not-asserted"`. These are local connector flags, not a live service probe.
+The call above returns a text content block whose parsed JSON begins with `{"version":"0.7.3","discovery":"public"}` and includes `"autonomousPayments":false`, `"walletKeysHeld":false`, and `"hostedServiceAvailability":"not-asserted"`. These are local connector flags, not a live service probe.
 
 For creator tools, `ServerConfig` may include `creator` with an **actual approved** `credential`, `ownerAccountId`, and optional `targetSpaceId`, plus a private absolute `stateDirectory` for the original-operation journal. The process must keep those values private; passing a credential in an MCP tool argument, prompt, or repository is unsupported. Use the CLI's private setup file flow in [Quickstart](quickstart.md) when possible. Creator calls without both a creator client and journal return `CREATOR_SETUP_REQUIRED`.
 

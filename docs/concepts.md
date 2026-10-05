@@ -2,7 +2,7 @@
 
 ## What this package is
 
-`@voidly/pay-mcp@0.7.2` is a local stdio MCP connector with 12 tools. It contains public request builders, validators, and a private local journal for creator mutations. The hosted service enforces grants, marketplace state, checkout, settlement, provider execution, and delivery. This repository does not distribute that hosted implementation.
+`@voidly/pay-mcp@0.7.3` is a local stdio MCP connector with 12 tools. It contains public request builders, validators, and a private local journal for creator mutations. The hosted service enforces grants, marketplace state, checkout, settlement, provider execution, and delivery. This repository does not distribute that hosted implementation.
 
 Public discovery needs no credential. Creator work needs an owner-approved grant. Buying a service is a separate browser action by the buyer. No MCP tool here holds wallet keys, signs a transaction, makes an autonomous purchase, or reports that a payment succeeded.
 
