@@ -6,8 +6,26 @@ This is the public source for `@voidly/pay-mcp`, a local stdio connector for the
 
 The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP service with `voidpay_status`, `voidpay_services`, `voidpay_storefront`, and `voidpay_checkout_link`. These are public read/link tools; the hosted connector does not expose the local package's 12-tool creator catalog. A checkout link prepares a buyer-browser handoff. The buyer reviews and authorizes any payment in the browser; the agent cannot sign, pay, or hold payment keys. A listing is not proof of available services or checkout readiness.
 
-- [Add hosted Voidpay to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=voidpay-hosted&config=eyJ2b2lkcGF5LWhvc3RlZCI6eyJ1cmwiOiJodHRwczovL2FwaS52b2lkbHkuYWkvbWNwL3ZvaWRwYXkifX0%3D) — Cursor asks you to review the server before installing. To configure it manually, place `{"mcpServers":{"voidpay-hosted":{"url":"https://api.voidly.ai/mcp/voidpay"}}}` in `~/.cursor/mcp.json` or your project's `.cursor/mcp.json`.
-- [Install hosted Voidpay in VS Code](vscode:mcp/install?%7B%22name%22%3A%22voidpay-hosted%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.voidly.ai%2Fmcp%2Fvoidpay%22%7D) — review the HTTP server configuration in VS Code. For a portable workspace file, use `{"mcpServers":{"voidpay-hosted":{"type":"http","url":"https://api.voidly.ai/mcp/voidpay"}}}` in root `.mcp.json`.
+### Add hosted Voidpay to Cursor
+
+Copy this install URI into a browser or the app. Review the server configuration before accepting it.
+
+```text
+cursor://anysphere.cursor-deeplink/mcp/install?name=voidpay-hosted&config=eyJ2b2lkcGF5LWhvc3RlZCI6eyJ1cmwiOiJodHRwczovL2FwaS52b2lkbHkuYWkvbWNwL3ZvaWRwYXkifX0%3D
+```
+
+Cursor asks you to review the server before installing. To configure it manually, place `{"mcpServers":{"voidpay-hosted":{"url":"https://api.voidly.ai/mcp/voidpay"}}}` in `~/.cursor/mcp.json` or your project's `.cursor/mcp.json`.
+
+### Install hosted Voidpay in VS Code
+
+Copy this install URI into a browser or the app. Review the server configuration before accepting it.
+
+```text
+vscode:mcp/install?%7B%22name%22%3A%22voidpay-hosted%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.voidly.ai%2Fmcp%2Fvoidpay%22%7D
+```
+
+review the HTTP server configuration in VS Code. For a portable workspace file, use `{"mcpServers":{"voidpay-hosted":{"type":"http","url":"https://api.voidly.ai/mcp/voidpay"}}}` in root `.mcp.json`.
+
 - **Claude Desktop / Claude account:** open **Customize → Connectors → Add custom connector** and enter `https://api.voidly.ai/mcp/voidpay`. Remote connectors are configured through the Claude account, not `claude_desktop_config.json`.
 
 ## Local package install
