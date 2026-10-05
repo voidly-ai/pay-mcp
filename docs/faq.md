@@ -2,7 +2,7 @@
 
 ## Is this a remote MCP endpoint?
 
-No. `@voidly/pay-mcp@0.7.2` runs locally over stdio in a Node 20+ MCP host. For remote-only hosts, this repository [documents a separate hosted Voidpay endpoint](../README.md#hosted-voidpay-four-public-tools) with four public read/link tools; it does not expose the local package's creator catalog. Check the current served endpoint before relying on it.
+No. `@voidly/pay-mcp@0.7.3` runs locally over stdio in a Node 20+ MCP host. For remote-only hosts, this repository [documents a separate hosted Voidpay endpoint](../README.md#hosted-voidpay-four-public-tools) with four public read/link tools; it does not expose the local package's creator catalog. Check the current served endpoint before relying on it.
 
 ## Does public discovery require a credential?
 
@@ -34,7 +34,7 @@ Do not send a replacement mutation. The connector journals the exact original be
 
 ## Can I use the old credit or escrow tools?
 
-No. This 0.7.2 interface has 12 marketplace tools and no retired credit, escrow, stream, or transfer tools. The migration from 0.6.x is intentionally breaking.
+No. This 0.7.3 interface has 12 marketplace tools and no retired credit, escrow, stream, or transfer tools. The migration from 0.6.x is intentionally breaking.
 
 ## Does a repository file or MCP Registry record prove the service is live?
 

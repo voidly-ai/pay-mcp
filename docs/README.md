@@ -1,6 +1,6 @@
 # Voidpay Marketplace MCP documentation
 
-These pages document `@voidly/pay-mcp` **0.7.2**, a local stdio MCP server for the hosted Voidpay marketplace. The package requires Node 20 or newer and exposes 12 tools. It can read public descriptive services, work on owner-approved marketplace drafts, and return a checkout link for the buyer to review in a browser. It does not sign transactions, hold wallet keys, or pay autonomously.
+These pages document `@voidly/pay-mcp` **0.7.3**, a local stdio MCP server for the hosted Voidpay marketplace. The package requires Node 20 or newer and exposes 12 tools. It can read public descriptive services, work on owner-approved marketplace drafts, and return a checkout link for the buyer to review in a browser. It does not sign transactions, hold wallet keys, or pay autonomously.
 
 Start here:
 

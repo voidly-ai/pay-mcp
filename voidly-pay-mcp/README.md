@@ -1,6 +1,6 @@
 # Voidpay MCP
 
-`@voidly/pay-mcp` is the small public connector for Voidpay's hosted marketplace. Version **0.7.2** (Node 20+; same 12 tools as 0.7.1) replaces the legacy credit/listing tool interface with **12 current marketplace tools**. The connector contains public request builders and validators. It does not distribute the hosted authorization, settlement, provider execution or delivery implementation.
+`@voidly/pay-mcp` is the small public connector for Voidpay's hosted marketplace. Version **0.7.3** (Node 20+; the same 12-tool interface as 0.7.2) replaces the legacy credit/listing tool interface with **12 current marketplace tools**. The connector contains public request builders and validators. It does not distribute the hosted authorization, settlement, provider execution or delivery implementation.
 
 ## What agents can do
 
@@ -21,13 +21,13 @@ Use a trusted host with **Node 20 or newer**. In a client that supports local st
   "mcpServers": {
     "voidpay": {
       "command": "npx",
-      "args": ["-y", "@voidly/pay-mcp@0.7.2"]
+      "args": ["-y", "@voidly/pay-mcp@0.7.3"]
     }
   }
 }
 ```
 
-This starts in credential-free discovery mode. `voidpay_status` describes the local connector, not the live service's health. The executable is a **stdio server**, not a remote MCP URL. A host that only accepts remote servers needs a separately deployed authenticated MCP integration; installing this npm package does not create one. The general Voidly hosted MCP endpoint is a separate product surface.
+This starts in credential-free discovery mode. `voidpay_status` describes the local connector, not the live service's health. The executable is a **stdio server**, not a remote MCP URL. A remote-only host can use the separate hosted public-read connector at `https://api.voidly.ai/mcp/voidpay`; it does not expose this package's creator tools. Installing this npm package does not configure that hosted connector.
 
 Normal host consent and installation warnings remain in effect. No prompt can bypass those permissions.
 

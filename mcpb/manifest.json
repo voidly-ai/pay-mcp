@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "voidpay-marketplace",
   "display_name": "Voidpay Marketplace",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Discover Voidpay marketplace services and hand off checkout to the owner's browser.",
   "author": {
     "name": "Voidly"
@@ -12,7 +12,7 @@
     "url": "https://github.com/voidly-ai/pay-mcp"
   },
   "homepage": "https://voidly.ai/pay",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "server": {
     "type": "node",
     "entry_point": "dist/cli.js",
