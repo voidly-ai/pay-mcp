@@ -6,6 +6,13 @@ Public listings do not prove current availability. Creator access requires an ow
 
 ## Documentation
 
+- [Documentation index](https://github.com/voidly-ai/pay-mcp/blob/main/docs/README.md): guide map and package boundaries.
+- [Quickstart](https://github.com/voidly-ai/pay-mcp/blob/main/docs/quickstart.md): pinned stdio setup, public discovery, creator grant, and buyer checkout.
+- [Concepts](https://github.com/voidly-ai/pay-mcp/blob/main/docs/concepts.md): descriptive projections, creator revisions, journal recovery, and payment boundary.
+- [All 12 tools](https://github.com/voidly-ai/pay-mcp/blob/main/docs/tools.md): exact arguments and synthetic request/response examples.
+- [Programmatic API](https://github.com/voidly-ai/pay-mcp/blob/main/docs/api.md): exported tool list, runner, and server builder.
+- [Errors and recovery](https://github.com/voidly-ai/pay-mcp/blob/main/docs/errors.md): safe codes and original-only handling.
+- [FAQ](https://github.com/voidly-ai/pay-mcp/blob/main/docs/faq.md): setup, permissions, and capability limits.
 - [Overview](https://github.com/voidly-ai/pay-mcp/blob/main/README.md): install, source boundary, checks, and publication status.
 - [Package guide](https://github.com/voidly-ai/pay-mcp/blob/main/voidly-pay-mcp/README.md): tool workflow, creator setup, exact publication, original-only recovery, and checkout limits.
 - [Quick install](https://github.com/voidly-ai/pay-mcp/blob/main/voidly-pay-mcp/llms-install.md): pinned stdio command and credential-safe setup.

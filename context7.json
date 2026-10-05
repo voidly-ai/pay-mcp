@@ -3,6 +3,7 @@
   "projectTitle": "Voidpay Marketplace MCP (@voidly/pay-mcp)",
   "description": "Node 20+ local stdio MCP connector for public service discovery, owner-approved marketplace drafts and publishing, original-only recovery, and browser checkout. No wallet keys or autonomous payments.",
   "folders": [
+    "docs",
     "voidly-pay-mcp"
   ],
   "excludeFolders": [

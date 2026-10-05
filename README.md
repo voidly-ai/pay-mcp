@@ -44,6 +44,7 @@ The repository's root `.mcp.json` pins the published local stdio package. For Cl
 ```
 
 The [package guide](voidly-pay-mcp/README.md) explains the tools, optional creator setup, original-only recovery, and checkout handoff. `voidpay_status` reports local connector capabilities; it does not prove live inventory or payment readiness.
+The [documentation](docs/README.md) adds a quickstart, concepts, examples for all 12 tools, the programmatic API, errors, and FAQ.
 
 ## Source and checks
 
@@ -63,7 +64,7 @@ The build guard checks every bundled import and output. 0.7.2 is the 0.7.1 code 
 
 ## Publication and license
 
-The source in this repository is offered under Apache-2.0. The previously published npm 0.7.1 tarball declares MIT and retains those terms; publishing this source does not change that release. A later npm release needs its own version bump, owner review, and trusted publisher setup. The CI workflow refuses to republish an existing npm version.
+The source in this repository and the published npm 0.7.2 package are offered under Apache-2.0. The previously published npm 0.7.1 tarball declares MIT and retains those terms. Future npm releases need a new version, owner review, and trusted publisher setup. The CI workflow refuses to republish an existing npm version.
 
 
 ## Trademarks
