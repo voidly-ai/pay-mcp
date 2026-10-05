@@ -1,7 +1,6 @@
 {
   "mcpServers": {
     "voidpay": {
-      "type": "stdio",
       "command": "npx",
       "args": ["-y", "@voidly/pay-mcp@0.7.4"]
     }

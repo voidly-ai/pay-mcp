@@ -1,0 +1,15 @@
+{
+  "name": "voidly-marketplace",
+  "description": "Voidly's local agent connectors",
+  "owner": {
+    "name": "Voidly",
+    "email": "info@voidly.ai"
+  },
+  "plugins": [
+    {
+      "name": "voidpay-marketplace",
+      "source": "./",
+      "description": "Local stdio Voidpay marketplace discovery, scoped creator work, and owner-browser checkout links"
+    }
+  ]
+}

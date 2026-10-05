@@ -1,0 +1,15 @@
+{
+  "name": "voidpay-marketplace",
+  "displayName": "Voidpay Marketplace",
+  "version": "0.7.4",
+  "description": "Discover Voidpay services, work on owner-approved marketplace drafts, and prepare browser checkout links with a local stdio MCP server.",
+  "author": {
+    "name": "Voidly",
+    "email": "info@voidly.ai",
+    "url": "https://voidly.ai"
+  },
+  "homepage": "https://voidly.ai/pay",
+  "repository": "https://github.com/voidly-ai/pay-mcp",
+  "license": "Apache-2.0",
+  "keywords": ["mcp", "voidpay", "marketplace", "agent-payments", "owner-approved-checkout"]
+}

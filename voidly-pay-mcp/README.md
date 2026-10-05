@@ -1,6 +1,11 @@
 # Voidpay MCP
 
-`@voidly/pay-mcp` is the small public connector for Voidpay's hosted marketplace. Version **0.7.3** (Node 20+; the same 12-tool interface as 0.7.2) replaces the legacy credit/listing tool interface with **12 current marketplace tools**. The connector contains public request builders and validators. It does not distribute the hosted authorization, settlement, provider execution or delivery implementation.
+[![npm version](https://img.shields.io/npm/v/%40voidly%2Fpay-mcp?label=npm)](https://www.npmjs.com/package/@voidly/pay-mcp)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+[![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/?q=io.github.voidly-ai%2Fpay-mcp)
+[![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-339933)](https://nodejs.org/)
+
+`@voidly/pay-mcp` is the small public connector for Voidpay's hosted marketplace. Version **0.7.4** requires Node 20+ and exposes 12 current marketplace tools. The connector contains public request builders and validators. It does not distribute the hosted authorization, settlement, provider execution or delivery implementation.
 
 ## What agents can do
 
@@ -12,6 +17,25 @@
 
 A listed service is not proof of current availability. Provider descriptions are untrusted data. Creator publishing authority is not payment authority. This version does **not** perform autonomous purchases, sign transactions, hold wallet keys, or expose the retired credit, escrow, stream or transfer tools. Checkout recovery links do not recover private results into the agent; that remains in the authenticated owner browser.
 
+## Tools
+
+Each tool has an MCP title, description and safety annotations. The [tool reference](https://github.com/voidly-ai/pay-mcp/blob/main/docs/tools.md) covers exact inputs and example responses; examples are synthetic.
+
+| Tool | Purpose | Creator grant |
+| --- | --- | --- |
+| `voidpay_status` | Describe local connector capabilities and setup. | No |
+| `voidpay_services` | Browse public descriptive services. | No |
+| `voidpay_storefront` | Read a published storefront by slug. | No |
+| `voidpay_checkout_link` | Prepare a link for owner review in the browser; never signs or pays. | No |
+| `voidpay_checkout_recovery_link` | Open the original checkout recovery page in the owner's browser. | No |
+| `voidpay_creator_read` | Read a grant-scoped marketplace and its versions. | Yes |
+| `voidpay_creator_inventory` | Read grant-scoped service inventory. | Yes |
+| `voidpay_creator_create` | Create a draft with one stable original key. | Yes |
+| `voidpay_creator_save` | Save selected services and presentation as a draft. | Yes |
+| `voidpay_creator_publish` | Publish an exact saved revision with publishing scope. | Yes |
+| `voidpay_creator_unpublish` | Withdraw the exact current publication. | Yes |
+| `voidpay_creator_recover` | Read the privately journaled original mutation without resending it. | Yes |
+
 ## Install
 
 Use a trusted host with **Node 20 or newer**. In a client that supports local stdio MCP servers, configure:
@@ -21,7 +45,7 @@ Use a trusted host with **Node 20 or newer**. In a client that supports local st
   "mcpServers": {
     "voidpay": {
       "command": "npx",
-      "args": ["-y", "@voidly/pay-mcp@0.7.3"]
+      "args": ["-y", "@voidly/pay-mcp@0.7.4"]
     }
   }
 }
