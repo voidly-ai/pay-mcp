@@ -38,3 +38,8 @@ The build guard checks every bundled import and output. 0.7.2 is the 0.7.1 code 
 ## Publication and license
 
 The source in this repository is offered under Apache-2.0. The previously published npm 0.7.1 tarball declares MIT and retains those terms; publishing this source does not change that release. A later npm release needs its own version bump, owner review, and trusted publisher setup. The CI workflow refuses to republish an existing npm version.
+
+
+## Trademarks
+
+Voidly™ and Voidpay™ are trademarks of Ai Analytics LLC. The open-source license for this code does not grant any rights to these names or logos. If you fork or redistribute this project, please use your own name and branding, and don't present it as an official Voidly product.
