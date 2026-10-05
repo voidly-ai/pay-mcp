@@ -1,0 +1,41 @@
+name: Package checks
+
+"on":
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pay-mcp-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  package:
+    if: github.repository == 'voidly-ai/pay-mcp'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: voidly-pay-mcp
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24.21.0'
+          package-manager-cache: false
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Test
+        run: npm test
+      - name: Build public bundle
+        run: npm run build
+      - name: Check plugin pins and stdio-only configuration
+        run: node ../.github/scripts/check-plugin-manifests.mjs
+      - name: Smoke stdio handshake and 12 titled tools
+        run: npm run smoke

@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "voidpay-marketplace",
   "display_name": "Voidpay Marketplace",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Discover Voidpay marketplace services and hand off checkout to the owner's browser.",
   "author": {
     "name": "Voidly"

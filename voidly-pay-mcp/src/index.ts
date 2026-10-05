@@ -37,7 +37,7 @@ export function createToolRunner(config: ServerConfig = {}) {
         tool.inputSchema.required.some(key => !Object.hasOwn(args, key))) throw new AdapterError('INVALID_INPUT');
       let result: unknown;
       switch (name) {
-        case 'voidpay_status': result = { version: '0.7.3', discovery: 'public', creatorConfigured: !!creator && !!journal,
+        case 'voidpay_status': result = { version: '0.7.4', discovery: 'public', creatorConfigured: !!creator && !!journal,
           creatorSetupUrl: 'https://voidly.ai/pay/marketplace/create', checkout: 'owner-browser-handoff',
           creatorRecovery: 'original-only', autonomousPayments: false, walletKeysHeld: false,
           legacyCreditEscrowTools: false, hostedServiceAvailability: 'not-asserted' }; break;
@@ -73,7 +73,7 @@ export function createToolRunner(config: ServerConfig = {}) {
 }
 export async function buildServer(config: ServerConfig = {}): Promise<{ server: Server }> {
   const call = createToolRunner(config);
-  const server = new Server({ name: 'voidly-pay', version: '0.7.3' }, { capabilities: { tools: {} } });
+  const server = new Server({ name: 'voidly-pay', version: '0.7.4' }, { capabilities: { tools: {} } });
   server.setRequestHandler(ListToolsRequestSchema, async () => ({ tools }));
   server.setRequestHandler(CallToolRequestSchema, async req => call(req.params.name, req.params.arguments ?? {}));
   return { server };

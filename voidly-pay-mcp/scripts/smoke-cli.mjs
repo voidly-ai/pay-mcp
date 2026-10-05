@@ -109,7 +109,7 @@ child.stdout.on("data", () => {
       if (list.some((t) => t.name === "voidly_fetch")) {
         return finish(1, "smoke: FAIL — voidly_fetch is present; it was removed in 0.5.2");
       }
-      const bad = list.find((t) => !t.name || !t.description || !t.inputSchema);
+      const bad = list.find((t) => !t.name || typeof t.title !== 'string' || !t.title.trim() || !t.description || !t.inputSchema);
       if (bad) {
         return finish(1, `smoke: FAIL — malformed tool entry: ${JSON.stringify(bad)}`);
       }

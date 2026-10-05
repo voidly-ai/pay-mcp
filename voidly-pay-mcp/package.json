@@ -1,7 +1,8 @@
 {
   "name": "@voidly/pay-mcp",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Public MCP connector for Voidpay marketplace discovery, scoped creator drafts and publishing, original-only recovery, and owner-browser checkout handoff. Hosted authorization and payment enforcement remain private. No wallet keys or autonomous payments.",
+  "author": "Voidly <info@voidly.ai>",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -55,7 +56,13 @@
     "service-discovery",
     "creator-tools",
     "stdio-transport",
-    "agent-to-agent"
+    "agent-to-agent",
+    "ai-agents",
+    "agent-payments",
+    "agentic-commerce",
+    "claude",
+    "marketplace-connector",
+    "owner-approved-checkout"
   ],
   "license": "Apache-2.0",
   "homepage": "https://voidly.ai/pay",
