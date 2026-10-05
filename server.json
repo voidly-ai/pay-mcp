@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.voidly-ai/pay-mcp",
-  "description": "Public discovery, scoped creator work, original-only recovery; checkout stays in owner's browser.",
+  "description": "Local discovery and scoped creator work; hosted four public reads; checkout in owner's browser.",
   "title": "Voidpay Marketplace",
   "version": "0.7.2",
   "websiteUrl": "https://voidly.ai/pay",
@@ -28,6 +28,12 @@
           "name": "VOIDPAY_MCP_STATE_DIR"
         }
       ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.voidly.ai/mcp/voidpay"
     }
   ]
 }
