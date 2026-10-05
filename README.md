@@ -11,7 +11,7 @@ The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP s
 Copy this install URI into a browser or the app. Review the server configuration before accepting it.
 
 ```text
-cursor://anysphere.cursor-deeplink/mcp/install?name=voidpay-hosted&config=eyJ2b2lkcGF5LWhvc3RlZCI6eyJ1cmwiOiJodHRwczovL2FwaS52b2lkbHkuYWkvbWNwL3ZvaWRwYXkifX0%3D
+cursor://anysphere.cursor-deeplink/mcp/install?name=voidpay-hosted&config=eyJ1cmwiOiJodHRwczovL2FwaS52b2lkbHkuYWkvbWNwL3ZvaWRwYXkifQ%3D%3D
 ```
 
 Cursor asks you to review the server before installing. To configure it manually, place `{"mcpServers":{"voidpay-hosted":{"url":"https://api.voidly.ai/mcp/voidpay"}}}` in `~/.cursor/mcp.json` or your project's `.cursor/mcp.json`.
