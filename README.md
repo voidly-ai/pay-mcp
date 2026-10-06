@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/%40voidly%2Fpay-mcp?label=npm)](https://www.npmjs.com/package/@voidly/pay-mcp)
 [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/?search=io.github.voidly-ai%2Fpay-mcp)
 [![Glama directory](https://img.shields.io/badge/Glama-directory-6b21a8)](https://glama.ai/mcp/servers/voidly-ai/pay-mcp)
+[![smithery badge](https://smithery.ai/badge/voidly/voidpay)](https://smithery.ai/servers/voidly/voidpay)
 
 This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Version 0.7.4 offers 12 tools. Public service discovery needs no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
 
