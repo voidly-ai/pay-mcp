@@ -1,0 +1,18 @@
+{
+  "name": "voidly-vercel-ai-sdk-mcp-example",
+  "private": true,
+  "type": "module",
+  "description": "Vercel AI SDK agent loop using Voidly's hosted MCP servers (Voidpay discovery + Atlas). Maintained by Voidly.",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node index.mjs",
+    "smoke": "node smoke-test.mjs"
+  },
+  "dependencies": {
+    "@ai-sdk/mcp": "2.0.68",
+    "@ai-sdk/openai": "4.0.85",
+    "ai": "7.0.129",
+    "zod": "4.6.5"
+  }
+}

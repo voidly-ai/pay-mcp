@@ -1,0 +1,4 @@
+# Python >=3.10. Versions current on PyPI 2026-10-06.
+llama-index-core==0.14.25
+llama-index-tools-mcp==0.6.0
+llama-index-llms-openai==0.8.2

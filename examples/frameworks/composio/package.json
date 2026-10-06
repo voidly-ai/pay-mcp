@@ -1,0 +1,19 @@
+{
+  "name": "voidly-composio-custom-mcp-example",
+  "private": true,
+  "type": "module",
+  "description": "Composio Custom MCP (experimental) pointed at Voidly's hosted Voidpay MCP server. Maintained by Voidly.",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node index.mjs",
+    "smoke": "node smoke-test.mjs"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "4.0.85",
+    "@composio/core": "0.22.0",
+    "@composio/vercel": "0.12.1",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "ai": "7.0.129"
+  }
+}

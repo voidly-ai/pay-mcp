@@ -1,0 +1,13 @@
+{
+  "name": "voidly-n8n-mcp-workflow-smoke",
+  "private": true,
+  "description": "Smoke test for voidly-hosted-mcp-agent.workflow.json using n8n's own MCP Client Tool code. Maintained by Voidly.",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "smoke": "node smoke-test.cjs"
+  },
+  "devDependencies": {
+    "@n8n/n8n-nodes-langchain": "2.42.3"
+  }
+}

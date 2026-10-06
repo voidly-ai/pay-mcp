@@ -1,0 +1,5 @@
+# Python >=3.10. AutoGen 0.7.5 is the last release (maintenance mode).
+# autogen-ext 0.7.5 breaks with the MCP Python SDK 2.x (ImportError: RequestContext), so pin mcp below 2.
+autogen-agentchat==0.7.5
+autogen-ext[openai,mcp]==0.7.5
+mcp==1.30.0
