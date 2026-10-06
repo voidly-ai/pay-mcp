@@ -14,6 +14,12 @@ function check(condition, message) {
   if (!condition) throw new Error(message);
 }
 
+export function checkHostedServer(hosted) {
+  check(hosted && typeof hosted === 'object' && !Array.isArray(hosted), 'root hosted Voidpay entry is invalid');
+  check(JSON.stringify(Object.keys(hosted).sort()) === JSON.stringify(['type', 'url']), 'root hosted Voidpay must contain only type and url');
+  check(hosted.type === 'http' && hosted.url === 'https://api.voidly.ai/mcp/voidpay', 'root hosted Voidpay URL differs');
+}
+
 check(claude.name === 'voidpay-marketplace' && cursor.name === claude.name, 'plugin names differ');
 check(claude.version === version && cursor.version === version, 'plugin versions differ from package');
 check(!Object.hasOwn(claude, 'mcpServers') && !Object.hasOwn(cursor, 'mcpServers'), 'plugin manifest duplicates the MCP server');
@@ -28,9 +34,7 @@ for (const path of ['.mcp.json', 'mcp.json']) {
   check(server.type === undefined || server.type === 'stdio', `${path} must use stdio`);
   check(!['url', 'headers', 'env'].some(key => Object.hasOwn(server, key)), `${path} local server adds a remote or secret-bearing setting`);
   if (path === '.mcp.json') {
-    const hosted = servers['voidpay-hosted'];
-    check(hosted.type === 'http' && hosted.url === 'https://api.voidly.ai/mcp/voidpay', 'root hosted Voidpay URL differs');
-    check(!['command', 'args', 'headers', 'env'].some(key => Object.hasOwn(hosted, key)), 'root hosted Voidpay adds an execution or secret-bearing setting');
+    checkHostedServer(servers['voidpay-hosted']);
   }
 }
 
