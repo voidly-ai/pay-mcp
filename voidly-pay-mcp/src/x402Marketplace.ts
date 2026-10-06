@@ -49,6 +49,21 @@ function schema(value: unknown): Record<string, unknown> {
   return value;
 }
 
+function sellerDetailUrl(value: unknown, id: string, network: unknown, version: unknown): boolean {
+  if (typeof value !== 'string' || typeof network !== 'string' ||
+      !Number.isSafeInteger(version) || (version as number) < 1) return false;
+  try {
+    const url = new URL(value);
+    return url.origin === GATEWAY && url.pathname === `/v1/services/${id}` &&
+      !url.username && !url.password && !url.hash &&
+      [...url.searchParams.keys()].length === 2 &&
+      url.searchParams.getAll('network').length === 1 &&
+      url.searchParams.getAll('version').length === 1 &&
+      url.searchParams.get('network') === network &&
+      url.searchParams.get('version') === String(version);
+  } catch { return false; }
+}
+
 function listing(value: unknown) {
   if (!object(value) || (value.kind !== 'seller' && value.kind !== 'first_party') ||
       typeof value.id !== 'string' || (value.kind === 'seller' ? !SELLER_ID.test(value.id) : !FIRST_PARTY[value.id]) ||
@@ -56,7 +71,7 @@ function listing(value: unknown) {
       value.method !== 'POST' || typeof value.name !== 'string' || !value.name || value.name.length > 120 ||
       typeof value.description !== 'string' || value.description.length > 500 ||
       typeof value.category !== 'string' || !value.category || value.category.length > 64 ||
-      (value.kind === 'seller' ? value.detailUrl !== `${GATEWAY}/v1/services/${value.id}` : value.detailUrl != null) ||
+      (value.kind === 'seller' ? !sellerDetailUrl(value.detailUrl, value.id, value.network, value.version) : value.detailUrl != null) ||
       value.callUrl !== (value.kind === 'seller' ? `${GATEWAY}/v1/services/${value.id}/call` : FIRST_PARTY[value.id]) ||
       typeof value.network !== 'string' || !USDC[value.network] || typeof value.asset !== 'string' ||
       value.asset.toLowerCase() !== USDC[value.network].toLowerCase() ||

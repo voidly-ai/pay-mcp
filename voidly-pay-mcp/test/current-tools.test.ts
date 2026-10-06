@@ -107,7 +107,7 @@ const qualifiedEmpty = { version:'voidpay.qualified-service-inventory.v1', obser
   services:[], nextCursor:null, selectionGrantsAuthority:false, publicationPerformed:false };
 const seller = { kind:'seller', id:'seller_01', version:1, status:'live', name:'Synthetic seller',
   description:'Synthetic listing', category:'research', method:'POST',
-  detailUrl:'https://x402.voidly.ai/v1/services/seller_01',
+  detailUrl:'https://x402.voidly.ai/v1/services/seller_01?network=eip155:84532&version=1',
   callUrl:'https://x402.voidly.ai/v1/services/seller_01/call', network:'eip155:84532',
   asset:'0x036CbD53842c5426634e7929541eC2318f3dCF7e', priceUsdcAtomic:'1250000',
   payTo:'0x'+'a'.repeat(40), inputSchema:{type:'object'}, outputSchema:{type:'object'},
@@ -172,9 +172,25 @@ it('allows only canonical first-party x402 targets and Base native USDC terms',a
     ? json(qualifiedEmpty) : json({version:'1',items:[{...first,asset:seller.asset}],nextCursor:null}));
   expect(JSON.parse((await createToolRunner()('voidpay_services')).content[1].text).availability).toBe('unavailable');
 });
-it('requires the canonical keyless seller detail URL and rejects caller-selected destinations',async()=>{
+it('requires seller detail URLs bound to the exact network and listing version',async()=>{
+  const mainnet={...seller,version:3,network:'eip155:8453',
+    asset:'0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+    detailUrl:'https://x402.voidly.ai/v1/services/seller_01?network=eip155:8453&version=3'};
+  for (const item of [mainnet,{...mainnet,
+    detailUrl:'https://x402.voidly.ai/v1/services/seller_01?version=3&network=eip155%3A8453'}]) {
+    fetcher.mockImplementation(async(url:string)=>String(url).startsWith('https://api.voidly.ai/')
+      ? json(qualifiedEmpty) : json({version:'1',items:[item],nextCursor:null}));
+    const result=await createToolRunner()('voidpay_services');
+    expect(JSON.parse(result.content[1].text)).toMatchObject({availability:'configured',listings:[{network:'eip155:8453',version:3}]});
+    fetcher.mockReset();
+  }
   for (const item of [{...seller,detailUrl:undefined},
-    {...seller,detailUrl:'https://evil.example/v1/services/seller_01'}]) {
+    {...seller,detailUrl:'https://evil.example/v1/services/seller_01?network=eip155:84532&version=1'},
+    {...seller,detailUrl:'https://x402.voidly.ai/v1/services/seller_01'},
+    {...seller,detailUrl:'https://x402.voidly.ai/v1/services/seller_01?network=eip155:8453&version=1'},
+    {...seller,detailUrl:'https://x402.voidly.ai/v1/services/seller_01?network=eip155:84532&version=2'},
+    {...seller,detailUrl:'https://x402.voidly.ai/v1/services/seller_01?network=eip155:84532&version=1&version=1'},
+    {...seller,detailUrl:'https://x402.voidly.ai/v1/services/seller_01?network=eip155:84532&version=1&extra=1'}]) {
     fetcher.mockImplementation(async(url:string)=>String(url).startsWith('https://api.voidly.ai/')
       ? json(qualifiedEmpty) : json({version:'1',items:[item],nextCursor:null}));
     const result=await createToolRunner()('voidpay_services');
