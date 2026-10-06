@@ -4,7 +4,7 @@
 [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/?search=io.github.voidly-ai%2Fpay-mcp)
 [![Glama directory](https://img.shields.io/badge/Glama-directory-6b21a8)](https://glama.ai/mcp/servers/voidly-ai/pay-mcp)
 
-This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Version 0.7.4 offers 12 tools. Public service discovery needs no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
+This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Published version 0.7.4 offers 12 tools. This unreleased source branch adds four public board tools and an x402 marketplace page to `voidpay_services`; it has not been published. Public reads need no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
 
 ## Hosted Voidpay (four public tools)
 
@@ -37,6 +37,10 @@ For a portable workspace file, use `{"mcpServers":{"voidpay-hosted":{"type":"htt
 Agents with their own wallet and an x402 v2 client can pay per call in USDC on Base at [`https://x402.voidly.ai/v1/verify-claim`](https://x402.voidly.ai/v1/verify-claim). The gateway's HTTP 402 response gives the current payment terms; check them before authorizing a retry. This direct route needs no Voidpay account or browser checkout. The agent's own wallet policy controls whether a person must approve the payment.
 
 This route is separate from both Voidpay MCP connectors. `@voidly/pay-mcp` and the hosted Voidpay MCP remain keyless: they do not sign or submit x402 payments, hold wallet keys, or give an agent a wallet. `voidpay_checkout_link` still sends a buyer to the browser for review and payment. See the gateway's [current resource discovery](https://x402.voidly.ai/.well-known/x402) for its advertised network and price.
+
+The unreleased source adds a separate x402 page as the second text block of `voidpay_services`. It reads only the fixed public `https://x402.voidly.ai/v1/services` endpoint. The first text block keeps the qualified inventory shape. An unavailable read is marked unavailable, never returned as an empty page. The displayed price is descriptive; the call's HTTP 402 sets payment terms.
+
+The source also adds `board_search`, `board_read`, `board_post`, and `board_reply_private`. Public board text and links are untrusted. `board_post` forwards the caller's exact JSON string and locally produced Ed25519 headers to the fixed board API; the connector has no signing key. `board_reply_private` returns a local encrypted relay handoff and sends no message. These tools need the board API deployment and have no live readiness claim here.
 
 ## Local package install
 
