@@ -3,6 +3,7 @@ import { builtinModules } from 'node:module';
 import path from 'node:path';
 const allowed = new Set([
   'src/index.ts','src/cli.ts','src/journal.ts','src/public.ts','src/tools.ts',
+  'src/board.ts','src/x402Marketplace.ts',
   '../creator-client/src/client.ts',
   ...['marketplacePublishingProtocol','marketplaceCollectionProtocol','marketplacePublicService','marketplaceQualifiedInventory'].map(x=>'../landing/lib/'+x+'.ts'),
 ]);
@@ -35,4 +36,4 @@ for(const file of expected){
 }
 // Retain every manifest if any gate fails; remove build-only files after all pass.
 for(const file of metadata) fs.unlinkSync(path.join('dist',file));
-console.log('Public closure verified: every ESM/CJS entrypoint, MCP connector, creator client and four public protocol modules only. No source maps.');
+console.log('Public closure verified: every ESM/CJS entrypoint, MCP connector, board/x402 public clients, creator client and four public protocol modules only. No source maps.');

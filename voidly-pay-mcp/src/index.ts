@@ -2,8 +2,11 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { createCreatorClient, type CreatorClientSettings, type CreatorOriginal, type CreatorRequestsV2, type CreatorSaveInput } from '../../creator-client/src/client';
 import { parseCreatorId } from '../../landing/lib/marketplacePublishingProtocol';
+import { parseQualifiedInventoryRequest } from '../../landing/lib/marketplaceQualifiedInventory';
 import { createJournal, AdapterError } from './journal.js';
 import { services, storefront, checkoutLink } from './public.js';
+import { x402Input, x402MarketplacePage } from './x402Marketplace.js';
+import { boardTool } from './board.js';
 import { tools } from './tools.js';
 export { tools };
 export interface ServerConfig { creator?: CreatorClientSettings; stateDirectory?: string }
@@ -12,7 +15,8 @@ type Mutation = typeof mutations[number];
 const safeCodes = new Set(['INVALID_INPUT', 'AUTH_REQUIRED', 'FORBIDDEN', 'NOT_FOUND', 'UNSUPPORTED_VERSION', 'CONFLICT', 'SLUG_CONFLICT',
   'STALE_VERSION', 'SERVICE_NOT_APPROVED', 'SERVICE_PROJECTION_CHANGED', 'LIMIT_REACHED', 'BODY_TOO_LARGE', 'RATE_LIMITED',
   'STORAGE_UNAVAILABLE', 'OUTCOME_UNKNOWN', 'HASH_UNAVAILABLE', 'INVALID_RESPONSE', 'REQUEST_ABORTED', 'ORIGINAL_MISMATCH',
-  'PRIVATE_STORAGE_UNAVAILABLE', 'PUBLIC_READ_UNAVAILABLE', 'STOREFRONT_SELECTION_CHANGED', 'CREATOR_SETUP_REQUIRED', 'TOOL_NOT_FOUND']);
+  'PRIVATE_STORAGE_UNAVAILABLE', 'PUBLIC_READ_UNAVAILABLE', 'STOREFRONT_SELECTION_CHANGED', 'CREATOR_SETUP_REQUIRED', 'TOOL_NOT_FOUND',
+  'SIGNATURE_REJECTED', 'BOARD_POST_REPLAYED', 'BOARD_WRITE_UNAVAILABLE']);
 
 export function createToolRunner(config: ServerConfig = {}) {
   const creator = config.creator ? createCreatorClient(config.creator) : null;
@@ -41,11 +45,36 @@ export function createToolRunner(config: ServerConfig = {}) {
           creatorSetupUrl: 'https://voidly.ai/pay/marketplace/create', checkout: 'owner-browser-handoff',
           creatorRecovery: 'original-only', autonomousPayments: false, walletKeysHeld: false,
           legacyCreditEscrowTools: false, hostedServiceAvailability: 'not-asserted' }; break;
-        case 'voidpay_services': result = await services(args.query ?? {}); break;
+        case 'voidpay_services': {
+          const x402 = x402Input({ cursor: args.x402Cursor, category: args.x402Category, search: args.x402Search });
+          parseQualifiedInventoryRequest(args.query ?? {});
+          // Each read has its own outcome. A failed qualified read cannot hide
+          // healthy x402 listings, and an empty page cannot mask an outage.
+          const [qualified, marketplace] = await Promise.allSettled([
+            services(args.query ?? {}), x402MarketplacePage(x402),
+          ]);
+          const first = qualified.status === 'fulfilled' ? qualified.value :
+            { error: { code: qualified.reason instanceof AdapterError && safeCodes.has(qualified.reason.code)
+              ? qualified.reason.code : 'INVALID_RESPONSE' } };
+          const second = marketplace.status === 'fulfilled' ? marketplace.value :
+            { version: 'voidpay.x402-marketplace-page.v1', availability: 'unavailable', listings: null,
+              nextCursor: null, searchScope: 'one-public-page', paymentPerformed: false };
+          return { ...(qualified.status === 'rejected' && second.availability === 'unavailable' ? { isError: true } : {}),
+            content: [{ type: 'text' as const, text: JSON.stringify(first) },
+              { type: 'text' as const, text: JSON.stringify(second) }],
+            structuredContent: { version: 'voidpay.mcp-services.v2',
+              qualifiedInventory: qualified.status === 'fulfilled' ? first : null,
+              qualifiedAvailability: qualified.status === 'fulfilled' ? 'configured' : 'unavailable',
+              x402Marketplace: second } };
+        }
         case 'voidpay_storefront': result = await storefront(args.slug); break;
         case 'voidpay_checkout_link': result = await checkoutLink(args.slug, args.publicationDigest, args.projectionId); break;
         case 'voidpay_checkout_recovery_link': result = { url: 'https://voidly.ai/pay/marketplace/checkout?recover=1',
           requiresOriginalOwnerBrowser: true, paymentPerformed: false }; break;
+        case 'board_search':
+        case 'board_read':
+        case 'board_post':
+        case 'board_reply_private': result = await boardTool(name, args); break;
         default: {
           if (!creator || !journal || !owner) throw new AdapterError('CREATOR_SETUP_REQUIRED');
           const operation = name.replace('voidpay_creator_', '');
@@ -67,7 +96,9 @@ export function createToolRunner(config: ServerConfig = {}) {
       const candidate = e && typeof e === 'object' && 'code' in e ? String(e.code) : '';
       const code = safeCodes.has(candidate) ? candidate : 'INVALID_INPUT';
       return { isError: true, content: [{ type: 'text' as const, text: JSON.stringify({ error: { code,
-        ...(['OUTCOME_UNKNOWN', 'PRIVATE_STORAGE_UNAVAILABLE'].includes(code) ? { recovery: 'original-only', instruction: 'Retain the original key and journal. Do not resend or generate a replacement key.' } : {}) } }) }] };
+        ...(['OUTCOME_UNKNOWN', 'PRIVATE_STORAGE_UNAVAILABLE'].includes(code) ? { recovery: 'original-only', instruction: 'Retain the original key and journal. Do not resend or generate a replacement key.' } : {}),
+        ...(name === 'board_post' && ['BOARD_WRITE_UNAVAILABLE', 'INVALID_RESPONSE', 'BOARD_POST_REPLAYED'].includes(code)
+          ? { instruction: 'Publication is unconfirmed. Search for the exact post and author DID before signing a fresh attempt.' } : {}) } }) }] };
     }
   };
 }

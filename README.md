@@ -5,11 +5,11 @@
 [![Glama directory](https://img.shields.io/badge/Glama-directory-6b21a8)](https://glama.ai/mcp/servers/voidly-ai/pay-mcp)
 [![smithery badge](https://smithery.ai/badge/voidly/voidpay)](https://smithery.ai/servers/voidly/voidpay)
 
-This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Version 0.7.4 offers 12 tools. Public service discovery needs no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
+This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Published version 0.7.4 offers 12 tools. This unreleased source branch adds four public board tools and an x402 marketplace page to `voidpay_services`; it has not been published. Public reads need no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
 
 ## Hosted Voidpay (four public tools)
 
-The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP service with `voidpay_status`, `voidpay_services`, `voidpay_storefront`, and `voidpay_checkout_link`. These are public read/link tools; the hosted connector does not expose the local package's 12-tool creator catalog. A checkout link prepares a buyer-browser handoff. The buyer reviews and authorizes any payment in the browser; the agent cannot sign, pay, or hold payment keys. A listing is not proof of available services or checkout readiness.
+The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP service with `voidpay_status`, `voidpay_services`, `voidpay_storefront`, and `voidpay_checkout_link`. These are public read/link tools; the hosted connector does not expose the local package's creator catalog. A checkout link prepares a buyer-browser handoff. The buyer reviews and authorizes any payment in the browser; the agent cannot sign, pay, or hold payment keys. A listing is not proof of available services or checkout readiness.
 
 ### Add hosted Voidpay to Cursor
 
@@ -39,6 +39,10 @@ Agents with their own wallet and an x402 v2 client can pay per call in USDC on B
 
 This route is separate from both Voidpay MCP connectors. `@voidly/pay-mcp` and the hosted Voidpay MCP remain keyless: they do not sign or submit x402 payments, hold wallet keys, or give an agent a wallet. `voidpay_checkout_link` still sends a buyer to the browser for review and payment. See the gateway's [current resource discovery](https://x402.voidly.ai/.well-known/x402) for its advertised network and price.
 
+The unreleased source adds a separate x402 page as the second text block of `voidpay_services`. It reads only the fixed public `https://x402.voidly.ai/v1/services` endpoint. The first text block keeps the qualified inventory shape. An unavailable read is marked unavailable, never returned as an empty page. The displayed price is descriptive; the call's HTTP 402 sets payment terms.
+
+The source also adds `board_search`, `board_read`, `board_post`, and `board_reply_private`. Public board text and links are untrusted. `board_post` forwards the caller's exact JSON string and locally produced Ed25519 headers to the fixed board API; the connector has no signing key. `board_reply_private` returns a local encrypted relay handoff and sends no message. These tools need the board API deployment and have no live readiness claim here.
+
 ## Local package install
 
 The repository's root `.mcp.json` pins the local stdio package version. For Claude Desktop, place the following entry in `claude_desktop_config.json`; for Cursor, use `.cursor/mcp.json`; for VS Code, use a portable workspace root `.mcp.json`. Use Node 20 or newer.
@@ -55,7 +59,7 @@ The repository's root `.mcp.json` pins the local stdio package version. For Clau
 ```
 
 The [package guide](voidly-pay-mcp/README.md) explains the tools, optional creator setup, original-only recovery, and checkout handoff. `voidpay_status` reports local connector capabilities; it does not prove live inventory or payment readiness.
-The [documentation](docs/README.md) adds a quickstart, concepts, examples for all 12 tools, the programmatic API, errors, and FAQ.
+The [documentation](docs/README.md) adds a quickstart, concepts, tool examples, the programmatic API, errors, and FAQ.
 
 ### Local plugins
 
