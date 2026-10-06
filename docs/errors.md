@@ -2,7 +2,7 @@
 
 ## MCP error shape
 
-Success is one MCP text content block whose `text` is JSON. On failure, the connector sets `isError: true` and returns a safe code, for example:
+Most successes return one MCP JSON text block. The source branch's `voidpay_services` returns two independent JSON text blocks. On failure, the connector sets `isError: true` and returns a safe code, for example:
 
 ```json
 {
@@ -22,7 +22,7 @@ After parsing `content[0].text`, the error is `{"error":{"code":"CREATOR_SETUP_R
 
 | Code | Meaning and next step |
 | --- | --- |
-| `TOOL_NOT_FOUND` | The tool name is not one of the 12 current names. List tools again. |
+| `TOOL_NOT_FOUND` | The tool name is not advertised by the installed connector. List tools again. |
 | `INVALID_INPUT` | Arguments, schema, IDs, digests, projection shape, or a response-derived input failed validation. Re-read the current data and correct the call. |
 | `CREATOR_SETUP_REQUIRED` | A creator tool was called without a configured creator client and journal. Public discovery does not need setup. |
 | `AUTH_REQUIRED`, `FORBIDDEN` | The hosted service rejected authentication or scope/target authority. The owner must review the actual grant; do not put a credential into a prompt. |

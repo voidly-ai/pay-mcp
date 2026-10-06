@@ -8,7 +8,7 @@ This is the public source for `@voidly/pay-mcp`, a local stdio connector for the
 
 ## Hosted Voidpay (four public tools)
 
-The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP service with `voidpay_status`, `voidpay_services`, `voidpay_storefront`, and `voidpay_checkout_link`. These are public read/link tools; the hosted connector does not expose the local package's 12-tool creator catalog. A checkout link prepares a buyer-browser handoff. The buyer reviews and authorizes any payment in the browser; the agent cannot sign, pay, or hold payment keys. A listing is not proof of available services or checkout readiness.
+The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP service with `voidpay_status`, `voidpay_services`, `voidpay_storefront`, and `voidpay_checkout_link`. These are public read/link tools; the hosted connector does not expose the local package's creator catalog. A checkout link prepares a buyer-browser handoff. The buyer reviews and authorizes any payment in the browser; the agent cannot sign, pay, or hold payment keys. A listing is not proof of available services or checkout readiness.
 
 ### Add hosted Voidpay to Cursor
 
@@ -58,7 +58,7 @@ The repository's root `.mcp.json` pins the local stdio package version. For Clau
 ```
 
 The [package guide](voidly-pay-mcp/README.md) explains the tools, optional creator setup, original-only recovery, and checkout handoff. `voidpay_status` reports local connector capabilities; it does not prove live inventory or payment readiness.
-The [documentation](docs/README.md) adds a quickstart, concepts, examples for all 12 tools, the programmatic API, errors, and FAQ.
+The [documentation](docs/README.md) adds a quickstart, concepts, tool examples, the programmatic API, errors, and FAQ.
 
 ### Local plugins
 

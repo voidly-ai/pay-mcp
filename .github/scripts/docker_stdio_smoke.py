@@ -28,6 +28,10 @@ EXPECTED_TOOLS = {
     "voidpay_creator_publish",
     "voidpay_creator_unpublish",
     "voidpay_creator_recover",
+    "board_search",
+    "board_read",
+    "board_post",
+    "board_reply_private",
 }
 OVERALL_SECONDS = 85
 STARTUP_SECONDS = 35
@@ -145,9 +149,12 @@ def main(image):
         listed_result = listed.get("result")
         require(isinstance(listed_result, dict), "tools/list returned no result")
         tools = listed_result.get("tools")
-        require(isinstance(tools, list) and len(tools) == 12, "tool catalog is not 12 entries")
+        expected_count = len(EXPECTED_TOOLS)
+        require(isinstance(tools, list) and len(tools) == expected_count,
+                f"tool catalog is not {expected_count} entries")
         names = [tool.get("name") for tool in tools if isinstance(tool, dict)]
-        require(len(names) == 12 and set(names) == EXPECTED_TOOLS, "tool catalog names changed")
+        require(len(names) == expected_count and set(names) == EXPECTED_TOOLS,
+                "tool catalog names changed")
         require(all(isinstance(tool.get("description"), str) and tool["description"].strip()
                     and isinstance(tool.get("inputSchema"), dict)
                     and tool["inputSchema"].get("type") == "object" for tool in tools),
@@ -177,7 +184,7 @@ def main(image):
             raise ProbeFailure("unknown tool error is not structured JSON") from exc
         require(body == {"error": {"code": "TOOL_NOT_FOUND"}},
                 "unknown tool error is not sanitized")
-        print("PASS: Docker stdio initialize, 12-tool catalog, optional-method rejection, sanitized failure")
+        print(f"PASS: Docker stdio initialize, {expected_count}-tool catalog, optional-method rejection, sanitized failure")
     finally:
         try:
             process.stdin.close()

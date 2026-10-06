@@ -4,12 +4,12 @@
 
 ## `tools`
 
-`tools` is the array of 12 public MCP tool definitions. Each definition has `name`, `description`, `inputSchema`, and annotations. It is metadata; reading it does not contact the hosted service or establish payment readiness.
+`tools` is the array of public MCP tool definitions: 12 in published 0.7.4 and 16 in this unreleased source branch. Each definition has `name`, `description`, `inputSchema`, and annotations. Reading it does not contact the hosted service or establish payment readiness.
 
 ```ts
 import { tools } from '@voidly/pay-mcp';
 
-const names = tools.map(tool => tool.name); // 12 names, from voidpay_status through voidpay_creator_recover
+const names = tools.map(tool => tool.name); // inspect the installed package's exact catalog
 ```
 
 The [tool reference](tools.md) gives one request and parsed response example for each name.
@@ -35,7 +35,7 @@ For creator tools, `ServerConfig` may include `creator` with an **actual approve
 
 ## `buildServer(config?)`
 
-`buildServer` returns a Promise of `{server}` with the 12 tools registered through the MCP SDK. The host connects that server to a transport; building it alone does not perform a network call or payment.
+`buildServer` returns a Promise of `{server}` with the package's tool catalog registered through the MCP SDK. The host connects that server to a transport; building it alone does not perform a network call or payment.
 
 ```ts
 import { buildServer } from '@voidly/pay-mcp';
