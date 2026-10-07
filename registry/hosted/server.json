@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.voidly-ai/voidly-hosted",
+  "title": "Voidly Hosted MCP",
+  "description": "Voidly MCP: research, Atlas score, capabilities; gated Voidpay, Voidmail, Home, board and bounty.",
+  "version": "2.25.0",
+  "websiteUrl": "https://voidly.ai",
+  "repository": {
+    "url": "https://github.com/voidly-ai/pay-mcp",
+    "source": "github",
+    "subfolder": "registry/hosted"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.voidly.ai/mcp"
+    }
+  ]
+}
