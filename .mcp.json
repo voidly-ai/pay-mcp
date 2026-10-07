@@ -4,6 +4,10 @@
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@voidly/pay-mcp@0.7.4"]
+    },
+    "voidpay-hosted": {
+      "type": "http",
+      "url": "https://api.voidly.ai/mcp/voidpay"
     }
   }
 }

@@ -41,7 +41,7 @@ This route is separate from both Voidpay MCP connectors. `@voidly/pay-mcp` and t
 
 ## Local package install
 
-The repository's root `.mcp.json` pins the local stdio package version. For Claude Desktop, place the following entry in `claude_desktop_config.json`; for Cursor, use `.cursor/mcp.json`; for VS Code, use a portable workspace root `.mcp.json`. Use Node 20 or newer.
+The repository's root `.mcp.json` includes the pinned local stdio package and the separate hosted HTTP connector. `mcp.json` keeps a local-only plugin configuration. For Claude Desktop, place the following entry in `claude_desktop_config.json`; for Cursor, use `.cursor/mcp.json`; for VS Code, use a portable workspace root `.mcp.json`. Use Node 20 or newer.
 
 ```json
 {
@@ -59,7 +59,7 @@ The [documentation](docs/README.md) adds a quickstart, concepts, examples for al
 
 ### Local plugins
 
-The repository includes a [Claude Code plugin](.claude-plugin/plugin.json) with a [repository marketplace](.claude-plugin/marketplace.json), and a [Cursor plugin](.cursor-plugin/plugin.json). Both use the local stdio package pinned in this repository's `.mcp.json` or `mcp.json`; neither plugin configures the separate hosted HTTP connector. After `@voidly/pay-mcp@0.7.4` is published, add the Claude marketplace from this GitHub repository so its relative plugin source resolves:
+The repository includes a [Claude Code plugin](.claude-plugin/plugin.json) with a [repository marketplace](.claude-plugin/marketplace.json), and a [Cursor plugin](.cursor-plugin/plugin.json). The root `.mcp.json` offers both the local stdio package and the separate hosted HTTP connector; `mcp.json` preserves a local-only entry. Review which server your client installs. After `@voidly/pay-mcp@0.7.4` is published, add the Claude marketplace from this GitHub repository so its relative plugin source resolves:
 
 ```sh
 claude plugin marketplace add voidly-ai/pay-mcp
