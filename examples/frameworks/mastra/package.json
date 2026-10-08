@@ -1,0 +1,17 @@
+{
+  "name": "voidly-mastra-mcp-example",
+  "private": true,
+  "type": "module",
+  "description": "Mastra agent using Voidly's hosted MCP servers (Voidpay discovery + Atlas). Maintained by Voidly.",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node index.mjs",
+    "smoke": "node smoke-test.mjs"
+  },
+  "dependencies": {
+    "@mastra/core": "1.74.0",
+    "@mastra/mcp": "2.1.2",
+    "zod": "4.6.5"
+  }
+}

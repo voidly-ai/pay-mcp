@@ -1,0 +1,2 @@
+# Python >=3.10. Version current on PyPI 2026-10-06.
+openai-agents==0.23.1
