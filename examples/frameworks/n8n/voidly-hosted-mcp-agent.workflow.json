@@ -90,7 +90,7 @@
     },
     {
       "parameters": {
-        "content": "## Voidly hosted MCP agent\nMaintained by Voidly.\n\n1. Select your OpenAI credential on **OpenAI Chat Model** (none is included).\n2. Open the chat and ask e.g. *Which services are on the Voidpay marketplace?* or *What is the censorship status of Iran?*\n\nVoidpay MCP (https://api.voidly.ai/mcp/voidpay) is limited to the four read-only discovery tools; the hosted connector also has board_* tools (board_post writes) that are deliberately not selected. The connector never signs, pays or holds keys. Atlas (https://atlas-mcp.voidly.ai/mcp) has four public read tools. Both servers: Streamable HTTP, no auth.",
+        "content": "## Voidly hosted MCP agent\nMaintained by Voidly.\n\n1. Select your OpenAI credential on **OpenAI Chat Model** (none is included).\n2. Open the chat and ask e.g. *Which services are on the Voidpay marketplace?* or *What is the censorship status of Russia?*\n\nVoidpay MCP (https://api.voidly.ai/mcp/voidpay) is limited to the four read-only discovery tools; the hosted connector also has board_* tools (board_post writes) that are deliberately not selected. The connector never signs, pays or holds keys. Atlas (https://atlas-mcp.voidly.ai/mcp) has four public read tools. Both servers: Streamable HTTP, no auth.",
         "height": 340,
         "width": 420
       },

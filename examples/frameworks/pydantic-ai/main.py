@@ -29,7 +29,7 @@ INSTRUCTIONS = (
 TASK = os.environ.get(
     "TASK",
     "List the services currently on the Voidpay marketplace with their price and network. Then use Voidly "
-    "Atlas to summarize Iran's current censorship status, including any freshness caveats in the data.",
+    "Atlas to summarize Russia's current censorship status, including any freshness caveats in the data.",
 )
 MODEL = os.environ.get("MODEL", "openai:gpt-5-mini")  # any Pydantic AI model string
 

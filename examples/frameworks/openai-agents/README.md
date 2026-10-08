@@ -9,7 +9,7 @@ An OpenAI Agents SDK `Agent` with two `MCPServerStreamableHttp` servers; the Voi
 | Voidpay marketplace discovery | `https://api.voidly.ai/mcp/voidpay` |
 | Voidly Atlas (censorship data) | `https://atlas-mcp.voidly.ai/mcp` |
 
-It lists the tools, then runs one agent task (override with `TASK`): *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Iran's current censorship status, including any freshness caveats in the data."*
+It lists the tools, then runs one agent task (override with `TASK`): *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Russia's current censorship status, including any freshness caveats in the data."*
 
 ## What the Voidly tools can and cannot do
 
@@ -42,7 +42,7 @@ python main.py
 
 ## Expected output
 
-The final output of `Runner.run`: the Voidpay services found and a short Iran summary with the data's freshness caveat. Exact wording varies by model and by live data. (Traces are uploaded to OpenAI by default; set `OPENAI_AGENTS_DISABLE_TRACING=1` to turn that off.)
+The final output of `Runner.run`: the Voidpay services found and a short Russia summary with the data's freshness caveat. Exact wording varies by model and by live data. (Traces are uploaded to OpenAI by default; set `OPENAI_AGENTS_DISABLE_TRACING=1` to turn that off.)
 
 ## Smoke test (no API key, no account)
 

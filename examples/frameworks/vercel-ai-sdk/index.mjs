@@ -13,7 +13,7 @@ const SYSTEM =
 const TASK =
   process.env.TASK ??
   'List the services currently on the Voidpay marketplace with their price and network. Then use Voidly ' +
-    "Atlas to summarize Iran's current censorship status, including any freshness caveats in the data.";
+    "Atlas to summarize Russia's current censorship status, including any freshness caveats in the data.";
 
 const { clients, tools } = await connect();
 try {

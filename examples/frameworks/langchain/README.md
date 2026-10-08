@@ -9,7 +9,7 @@ A LangChain v1 agent (`create_agent`) that loads MCP tools with `langchain.mcp.M
 | Voidpay marketplace discovery | `https://api.voidly.ai/mcp/voidpay` |
 | Voidly Atlas (censorship data) | `https://atlas-mcp.voidly.ai/mcp` |
 
-It lists the tools, then runs one agent task (override with `TASK`): *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Iran's current censorship status, including any freshness caveats in the data."*
+It lists the tools, then runs one agent task (override with `TASK`): *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Russia's current censorship status, including any freshness caveats in the data."*
 
 ## What the Voidly tools can and cannot do
 
@@ -42,7 +42,7 @@ python main.py
 
 ## Expected output
 
-A `Tools:` line with the eight allowlisted tool names, then the model's answer: the Voidpay services it found (title, price, network as returned by `voidpay_services`) and a short Iran summary from `voidly_country_data` with the data's freshness caveat. Exact wording varies by model and by live data.
+A `Tools:` line with the eight allowlisted tool names, then the model's answer: the Voidpay services it found (title, price, network as returned by `voidpay_services`) and a short Russia summary from `voidly_country_data` with the data's freshness caveat. Exact wording varies by model and by live data.
 
 ## Smoke test (no API key, no account)
 

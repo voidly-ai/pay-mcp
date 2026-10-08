@@ -9,7 +9,7 @@ A CrewAI `Agent` using CrewAI's MCP DSL (`mcps=[MCPServerHTTP(...)]`) with `crea
 | Voidpay marketplace discovery | `https://api.voidly.ai/mcp/voidpay` |
 | Voidly Atlas (censorship data) | `https://atlas-mcp.voidly.ai/mcp` |
 
-It lists the tools, then runs one agent task (override with `TASK`): *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Iran's current censorship status, including any freshness caveats in the data."*
+It lists the tools, then runs one agent task (override with `TASK`): *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Russia's current censorship status, including any freshness caveats in the data."*
 
 ## What the Voidly tools can and cannot do
 
@@ -43,7 +43,7 @@ python main.py
 
 ## Expected output
 
-CrewAI's verbose run log, then the final answer (`.raw`): the Voidpay services found and a short Iran summary with the data's freshness caveat. Exact wording varies by model and by live data.
+CrewAI's verbose run log, then the final answer (`.raw`): the Voidpay services found and a short Russia summary with the data's freshness caveat. Exact wording varies by model and by live data.
 
 ## Smoke test (no API key, no account)
 

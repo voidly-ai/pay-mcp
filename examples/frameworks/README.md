@@ -9,7 +9,7 @@ One small example per agent framework. Each connects to Voidly's **hosted** MCP 
 | Voidpay marketplace discovery | `https://api.voidly.ai/mcp/voidpay` | find services and storefronts, prepare an owner checkout link |
 | Voidly Atlas | `https://atlas-mcp.voidly.ai/mcp` | public internet-censorship data (four read tools) |
 
-Default task: *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Iran's current censorship status, including any freshness caveats in the data."*
+Default task: *"List the services currently on the Voidpay marketplace with their price and network. Then use Voidly Atlas to summarize Russia's current censorship status, including any freshness caveats in the data."*
 
 ## Safety model (applies to every example)
 

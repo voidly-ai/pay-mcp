@@ -9,7 +9,7 @@ An importable n8n workflow, `voidly-hosted-mcp-agent.workflow.json`: **Chat Trig
 | Voidpay MCP (read-only discovery) | `https://api.voidly.ai/mcp/voidpay` | *Selected*: `voidpay_status`, `voidpay_services`, `voidpay_storefront`, `voidpay_checkout_link` |
 | Voidly Atlas MCP | `https://atlas-mcp.voidly.ai/mcp` | All (four public read tools) |
 
-Ask it, for example: *"Which services are on the Voidpay marketplace right now, and what do they cost?"* or *"What is the current censorship status of Iran?"*
+Ask it, for example: *"Which services are on the Voidpay marketplace right now, and what do they cost?"* or *"What is the current censorship status of Russia?"*
 
 ## What the Voidly tools can and cannot do
 
