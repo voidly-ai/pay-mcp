@@ -1,7 +1,7 @@
-# Voidly hosted MCP Registry entry
+# Historical Voidly hosted MCP Registry reference
 
-This folder holds the public Registry descriptor for Voidly's unified hosted MCP endpoint at https://api.voidly.ai/mcp. The root `server.json` describes the separate `@voidly/pay-mcp` npm/stdio connector.
+The historical `io.github.voidly-ai/voidly-hosted` Registry version 2.25.0 links to this folder. Keep this page so that link remains readable. It is not the source of the hosted backend.
 
-The descriptor links to this public repository and its `registry/hosted` subfolder, which holds the Registry metadata. The publication workflow is in `.github/workflows`. The hosted service is operated separately; its backend implementation is not in this repository.
+The 9 Oct 2026 Registry refresh published version 2.34.0 with no repository field, after verifying the served `https://api.voidly.ai/mcp` version and tool catalog. This repository no longer carries a hosted `server.json` or a workflow for publishing the combined hosted service. Its root `server.json` describes the separate local `@voidly/pay-mcp` connector.
 
-Publication is manual from reviewed `main`. The workflow checks the served MCP version and tool catalog before OIDC authentication, then makes one publish attempt and verifies the exact public Registry record. The `mcp-registry-publish` GitHub environment needs required reviewers, a main-only branch rule, and its environment-scoped guard variable before dispatch.
+For the current hosted version and tool list, read the live MCP `initialize` and `tools/list` results and the current Registry record. Do not use the old 2.25.0 descriptor or its 75-tool catalog as current metadata.
