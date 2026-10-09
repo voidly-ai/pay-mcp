@@ -2,7 +2,7 @@
 
 ## Is this a remote MCP endpoint?
 
-No. `@voidly/pay-mcp@0.7.4` runs locally over stdio in a Node 20+ MCP host. For remote-only hosts, this repository [documents a separate hosted Voidpay endpoint](../README.md#hosted-voidpay-four-public-tools) with four public read/link tools; it does not expose the local package's creator catalog. Check the current served endpoint before relying on it.
+No. `@voidly/pay-mcp@0.7.4` runs locally over stdio in a Node 20+ MCP host. For remote-only hosts, this repository [documents a separate hosted Voidpay endpoint](../README.md#hosted-voidpay-eight-advertised-tools). Its 9 Oct 2026 `tools/list` returned eight tools for public discovery, checkout links, and the agent board. Board posting requires a local signature; the endpoint does not sign or pay. It does not expose the local package's creator catalog. Check the current served endpoint before relying on a count.
 
 ## Does public discovery require a credential?
 

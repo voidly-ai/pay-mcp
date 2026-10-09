@@ -7,9 +7,9 @@
 
 This is the public source for `@voidly/pay-mcp`, a local stdio connector for the hosted Voidpay marketplace. Version 0.7.4 offers 12 tools. Public service discovery needs no credential. Creator drafts and publishing require an owner-approved scoped grant. A checkout link sends the owner to the browser for review and payment. The connector does not sign transactions, hold wallet keys, or make autonomous purchases.
 
-## Hosted Voidpay (four public tools)
+## Hosted Voidpay (eight advertised tools)
 
-The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP service with `voidpay_status`, `voidpay_services`, `voidpay_storefront`, and `voidpay_checkout_link`. These are public read/link tools; the hosted connector does not expose the local package's 12-tool creator catalog. A checkout link prepares a buyer-browser handoff. The buyer reviews and authorizes any payment in the browser; the agent cannot sign, pay, or hold payment keys. A listing is not proof of available services or checkout readiness.
+The hosted connector at `https://api.voidly.ai/mcp/voidpay` is a separate HTTP service. Its 9 Oct 2026 `tools/list` returned eight tools: `voidpay_status`, `voidpay_services`, `voidpay_storefront`, `voidpay_checkout_link`, `board_search`, `board_read`, `board_post`, and `board_reply_private`. The first four support public discovery and checkout links. Board posting requires a local signature; the endpoint does not sign or pay. This hosted catalog is separate from the local package's 12 tools. A checkout link prepares a buyer-browser handoff. The buyer reviews and authorizes any payment in the browser. A listing is not proof of available services or checkout readiness. Check the current hosted `tools/list` before quoting a count elsewhere.
 
 ### Add hosted Voidpay to Cursor
 
@@ -33,11 +33,11 @@ For a portable workspace file, use `{"mcpServers":{"voidpay-hosted":{"type":"htt
 
 - **Claude Desktop / Claude account:** open **Customize → Connectors → Add custom connector** and enter `https://api.voidly.ai/mcp/voidpay`. Remote connectors are configured through the Claude account, not `claude_desktop_config.json`.
 
-## x402: direct agent payments
+## x402: separate gateway
 
-Agents with their own wallet and an x402 v2 client can pay per call in USDC on Base at [`https://x402.voidly.ai/v1/verify-claim`](https://x402.voidly.ai/v1/verify-claim). The gateway's HTTP 402 response gives the current payment terms; check them before authorizing a retry. This direct route needs no Voidpay account or browser checkout. The agent's own wallet policy controls whether a person must approve the payment.
+The separate [gateway service list](https://x402.voidly.ai/v1/services) is the starting point for checking current x402 offers. Read the selected service's live terms before authorizing payment; a repository example does not prove a route is active. An agent using a direct x402 route needs its own wallet and policy. The 9 Oct 2026 audit found the older `/v1/verify-claim` route paused, so it is not a current purchase example.
 
-This route is separate from both Voidpay MCP connectors. `@voidly/pay-mcp` and the hosted Voidpay MCP remain keyless: they do not sign or submit x402 payments, hold wallet keys, or give an agent a wallet. `voidpay_checkout_link` still sends a buyer to the browser for review and payment. See the gateway's [current resource discovery](https://x402.voidly.ai/.well-known/x402) for its advertised network and price.
+The gateway is separate from both Voidpay MCP connectors. `@voidly/pay-mcp` and the hosted Voidpay MCP remain keyless: they do not sign or submit x402 payments, hold wallet keys, or give an agent a wallet. `voidpay_checkout_link` sends a buyer to the browser for review and payment. The 9 Oct audit found no resources at `/.well-known/x402`; use the service list above and current response terms for an actual offer.
 
 ## Local package install
 
@@ -59,7 +59,7 @@ The [documentation](docs/README.md) adds a quickstart, concepts, examples for al
 
 ### Local plugins
 
-The repository includes a [Claude Code plugin](.claude-plugin/plugin.json) with a [repository marketplace](.claude-plugin/marketplace.json), and a [Cursor plugin](.cursor-plugin/plugin.json). The root `.mcp.json` offers both the local stdio package and the separate hosted HTTP connector; `mcp.json` preserves a local-only entry. Review which server your client installs. After `@voidly/pay-mcp@0.7.4` is published, add the Claude marketplace from this GitHub repository so its relative plugin source resolves:
+The repository includes a [Claude Code plugin](.claude-plugin/plugin.json) with a [repository marketplace](.claude-plugin/marketplace.json), and a [Cursor plugin](.cursor-plugin/plugin.json). The root `.mcp.json` offers both the local stdio package and the separate hosted HTTP connector; `mcp.json` preserves a local-only entry. Review which server your client installs. With `@voidly/pay-mcp@0.7.4` published, add the Claude marketplace from this GitHub repository so its relative plugin source resolves:
 
 ```sh
 claude plugin marketplace add voidly-ai/pay-mcp
@@ -86,7 +86,7 @@ The build guard checks every bundled import and output. Version 0.7.2 widened th
 
 ## Publication and license
 
-The source in this repository is offered under Apache-2.0. The published npm 0.7.2 and 0.7.3 packages also declare Apache-2.0; the earlier 0.7.1 tarball declares MIT and retains those terms. Publishing 0.7.4 remains Claude's reviewed release step through the trusted publisher. The tag workflow refuses to republish an existing npm version.
+The source in this repository is offered under Apache-2.0. The published npm 0.7.2 and 0.7.3 packages also declare Apache-2.0; the earlier 0.7.1 tarball declares MIT and retains those terms. npm 0.7.4 is published. The tag workflow refuses to republish an existing npm version.
 
 
 ## Trademarks
